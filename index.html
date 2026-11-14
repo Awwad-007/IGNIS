@@ -158,6 +158,12 @@ input[type=range]{accent-color:var(--red)}
 #siAnswer h3{font:10px/1.6 var(--px);margin:0 0 8px;color:#fff;text-shadow:2px 2px 0 var(--ink)}
 #siAnswer p{font:16px/1.3 var(--pf)!important;color:#dff6ff!important;margin:6px 0}
 #siAnswer p b{font:8px var(--px);color:var(--amb);display:block;margin-bottom:3px}
+.cm-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:10px;align-items:end}
+@media(max-width:800px){.cm-grid{grid-template-columns:1fr 1fr!important}.cm-grid button{grid-column:span 2}}
+@media(max-width:500px){.cm-grid{grid-template-columns:1fr!important}.cm-grid button{grid-column:span 1}}
+#siKeyRow input{width:100%;background:#071324;border:3px solid var(--ink);color:var(--phos);font:14px var(--pf);padding:6px 10px;outline:none;border-radius:4px}
+#siKeyRow input::placeholder{color:#4b708b}
+#habMap{cursor:pointer}
 .scrollcrt{height:540px}.plist{position:absolute;inset:0;overflow:auto;padding:24px 24px 18px;scrollbar-color:var(--gcy) #031019;scrollbar-width:thin}
 .rcard{border:3px solid var(--ink);background:#0a1c30;padding:10px 12px;margin-bottom:10px;color:#dff6ff;box-shadow:0 0 0 2px rgba(41,168,224,.3)}
 .rh{display:flex;justify-content:space-between;gap:8px;align-items:center}.rh b{font:10px/1.5 var(--px);color:#fff}
@@ -237,6 +243,16 @@ input[type=range]{accent-color:var(--red)}
    <div class="win"><canvas id="lab" width="480" height="150"></canvas>
     <div class="deckbar"><div class="tabs" id="mtabs"></div>
      <div class="tabs"><b>GRAVITY</b><button class="gb" data-g="1">1 G</button><button class="gb" data-g=".38">.38 MARS</button><button class="gb on" data-g=".16">.16 MOON</button><button class="gb" data-g="0">0 G ORBIT</button></div></div></div></div>
+  <div class="two" style="margin-top:20px">
+    <div>
+      <p class="fig">Fig. 1B · Live U-Curve Flammability Envelope</p>
+      <div class="win"><canvas id="uCurve" width="480" height="230"></canvas></div>
+    </div>
+    <div>
+      <p class="fig">Fig. 1C · 4-Zone Habitat Bulkhead Telemetry</p>
+      <div class="win"><canvas id="habMap" width="480" height="230"></canvas></div>
+    </div>
+  </div>
 </section>
 
 <section class="step" id="s2">
@@ -244,6 +260,34 @@ input[type=range]{accent-color:var(--red)}
   <p class="sub">Standard test: ignite a strip on Earth, still air. If the flame climbs past six inches, the material fails. Pass means it goes in the cabin kit.</p>
   <div class="cards" id="cards"></div>
   <p style="margin:18px 0 0"><button id="runAll">Burn all five</button></p>
+  <div class="deckcard" style="margin-top:20px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <h3 style="margin:0;font:10px/1.6 var(--px);color:#fff;text-shadow:2px 2px 0 var(--ink)">CUSTOM MATERIAL TEST BENCH</h3>
+      <span class="tag">FLIGHT HARDWARE LAB</span>
+    </div>
+    <p style="margin:0 0 12px;font:16px/1.3 var(--pf)!important;color:#cfe8ff!important">Design a custom spacecraft polymer or composite, configure its flammability parameters, and run the 6-inch qualification test under Earth gravity.</p>
+    <div class="cm-grid">
+      <div>
+        <label style="display:block;font:8px/1.4 var(--px);color:#cfe8ff;margin-bottom:4px">MATERIAL NAME</label>
+        <input id="cmName" type="text" value="Kapton wire wrap" style="width:100%;background:#071324;border:3px solid var(--ink);color:var(--phos);font:16px var(--pf);padding:7px 9px;outline:none;border-radius:5px">
+      </div>
+      <div>
+        <label style="display:block;font:8px/1.4 var(--px);color:#cfe8ff;margin-bottom:4px">1G LIMIT %</label>
+        <input id="cmL1" type="number" value="24" min="14" max="40" step="0.5" style="width:100%;background:#071324;border:3px solid var(--ink);color:var(--amb);font:16px var(--pf);padding:7px 9px;outline:none;border-radius:5px">
+      </div>
+      <div>
+        <label style="display:block;font:8px/1.4 var(--px);color:#cfe8ff;margin-bottom:4px">0G FLOOR %</label>
+        <input id="cmL0" type="number" value="18.2" min="12" max="35" step="0.5" style="width:100%;background:#071324;border:3px solid var(--ink);color:var(--amb);font:16px var(--pf);padding:7px 9px;outline:none;border-radius:5px">
+      </div>
+      <div>
+        <label style="display:block;font:8px/1.4 var(--px);color:#cfe8ff;margin-bottom:4px">SPREAD (MM/S)</label>
+        <input id="cmV" type="number" value="0.4" min="0.05" max="6" step="0.05" style="width:100%;background:#071324;border:3px solid var(--ink);color:var(--phos);font:16px var(--pf);padding:7px 9px;outline:none;border-radius:5px">
+      </div>
+      <div>
+        <button class="go" id="cmAdd" type="button" style="white-space:nowrap;padding:9px 14px">+ ADD &amp; BURN STRIP</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="step" id="s3">
@@ -281,9 +325,13 @@ input[type=range]{accent-color:var(--red)}
   <div class="deckcard"><div id="briefTxt"></div>
    <div style="margin-top:14px;border-top:2px solid rgba(7,19,36,.6);padding-top:12px">
     <div style="font:9px/1.6 var(--px);color:#fff;text-shadow:1px 1px 0 var(--ink);margin-bottom:8px">ASK THE SI ARCHIVE</div>
-    <div style="display:flex;gap:8px;align-items:stretch">
-     <input id="siQuery" type="text" placeholder="Ask about 0g combustion, tests, limits..." aria-label="Ask the SI Archive">
+    <div style="display:flex;gap:8px;align-items:stretch;flex-wrap:wrap">
+     <input id="siQuery" type="text" placeholder="Ask about 0g combustion, tests, limits..." aria-label="Ask the SI Archive" style="flex:1;min-width:200px">
      <button class="go" id="siSynth" type="button" style="white-space:nowrap">SYNTHESIZE</button>
+     <button id="siKeyBtn" type="button" style="white-space:nowrap;font:8px/1.4 var(--px);background:var(--gblue);color:#fff">API KEY (OPT)</button>
+    </div>
+    <div id="siKeyRow" style="display:none;margin-top:8px">
+     <input id="siKey" type="password" placeholder="Optional Gemini AIza... or Groq gsk_... key (saved locally)" style="width:100%;background:#071324;border:3px solid var(--ink);color:var(--phos);font:14px var(--pf);padding:6px 10px;outline:none;border-radius:4px">
     </div>
     <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">
      <span style="font:8px var(--px);color:#cfe8ff;margin-right:2px">PRESETS:</span>
@@ -422,6 +470,123 @@ function labPanel(i,x0,g,t,dt){const x=lx,m=MAT[LM],u=S.v,Lm=loi(m,g,u),mg=eff()
  x.textAlign='left';x.font="16px 'Press Start 2P',monospace";x.fillStyle='#8fb6c8';x.fillText('LIMIT '+Lm.toFixed(1)+'% AIR '+eff().toFixed(1)+'%'+(i&&g<1&&u>1&&b?' WAKE':''),30,272);x.restore()}
 function labDraw(t,dt){lx.setTransform(.5,0,0,.5,0,0);labPanel(0,0,1,t,dt);labPanel(1,480,S.g,t,dt);lx.fillStyle='#fff';lx.fillRect(479,0,2,300)}
 
+/* ---------- step 1 add-ons: live u-curve + 4-zone habitat bulkhead ---------- */
+const uc=$('#uCurve'),ux=uc?uc.getContext('2d'):null;
+const hm=$('#habMap'),hx2=hm?hm.getContext('2d'):null;
+
+function uCurveDraw(t,dt){
+ if(!ux)return;
+ const W=480,H=230,L=46,Rm=16,T=26,B=30,pw=W-L-Rm,ph=H-T-B;
+ const m=MAT[LM]||MAT[0],uMin=0,uMax=40,oMin=12,oMax=36;
+ const mapX=u=>L+(u-uMin)/(uMax-uMin)*pw,mapY=o=>H-B-(o-oMin)/(oMax-oMin)*ph;
+ ux.fillStyle='#071324';ux.fillRect(0,0,W,H);grid(ux,W,H,.05);
+ ux.font="12px 'VT323',monospace";ux.lineWidth=1;
+ for(let o=12;o<=36;o+=4){
+  const y=mapY(o);ux.strokeStyle='rgba(41,168,224,.18)';ux.beginPath();ux.moveTo(L,y);ux.lineTo(W-Rm,y);ux.stroke();
+  ux.fillStyle='#8fb6c8';ux.textAlign='right';ux.fillText(o+'%',L-5,y+4);
+ }
+ for(let u=0;u<=40;u+=10){
+  const x=mapX(u);ux.strokeStyle='rgba(41,168,224,.18)';ux.beginPath();ux.moveTo(x,T);ux.lineTo(x,H-B);ux.stroke();
+  ux.fillStyle='#8fb6c8';ux.textAlign='center';ux.fillText(u,x,H-B+16);
+ }
+ ux.fillStyle='#9cc3d6';ux.textAlign='center';ux.fillText('VENTILATION AIRFLOW (CM/S)',(L+W-Rm)/2,H-4);
+ ux.textAlign='left';ux.fillText('O2 (%)',6,T-10);
+ const l1=loi(m,1,0),yEarth=mapY(l1),pts=[];
+ for(let k=0;k<=80;k++){
+  const u=uMin+(uMax-uMin)*(k/80),loiVal=loi(m,S.g,u);
+  pts.push({u,loiVal,x:mapX(u),y:mapY(clamp(loiVal,oMin,oMax))});
+ }
+ const dangerPts=pts.filter(p=>p.loiVal<l1);
+ if(dangerPts.length>1){
+  ux.save();ux.beginPath();ux.moveTo(dangerPts[0].x,yEarth);
+  dangerPts.forEach(p=>ux.lineTo(p.x,p.y));
+  ux.lineTo(dangerPts[dangerPts.length-1].x,yEarth);ux.closePath();
+  ux.fillStyle='rgba(238,59,36,0.22)';ux.fill();
+  const midD=dangerPts[dangerPts.length>>1];
+  ux.font="11px 'VT323',monospace";ux.fillStyle='rgba(255,160,150,0.85)';ux.textAlign='center';
+  const textY=(yEarth+midD.y)/2;
+  if(Math.abs(yEarth-midD.y)>14)ux.fillText('NEGATIVE MARGIN DANGER POCKET',midD.x,textY+3);
+  ux.restore();
+ }
+ ux.save();ux.strokeStyle='#FFC145';ux.lineWidth=1.8;ux.setLineDash([6,4]);
+ ux.beginPath();ux.moveTo(L,yEarth);ux.lineTo(W-Rm,yEarth);ux.stroke();ux.setLineDash([]);
+ ux.font="11px 'VT323',monospace";ux.fillStyle='#FFC145';ux.textAlign='right';
+ ux.fillText('EARTH 1G LIMIT: '+l1.toFixed(1)+'%',W-Rm-4,yEarth-5);ux.restore();
+ ux.save();ux.strokeStyle='#7CE9FF';ux.lineWidth=2.4;ux.beginPath();
+ pts.forEach((p,i)=>{i===0?ux.moveTo(p.x,p.y):ux.lineTo(p.x,p.y)});ux.stroke();ux.restore();
+ const curX=mapX(clamp(S.v,uMin,uMax)),curEff=eff(),curY=mapY(clamp(curEff,oMin,oMax));
+ const L_curr=loi(m,S.g,S.v),isBurn=curEff>=L_curr,isNegMargin=isBurn&&curEff<l1,pulse=Math.sin(t*6);
+ const retColor=isNegMargin?'#ff3b24':isBurn?'#ff8552':'#46e68a';
+ ux.save();ux.strokeStyle=retColor;ux.lineWidth=1.5;ux.setLineDash([3,3]);
+ ux.beginPath();ux.moveTo(curX,T);ux.lineTo(curX,H-B);ux.moveTo(L,curY);ux.lineTo(W-Rm,curY);ux.stroke();ux.setLineDash([]);
+ ux.fillStyle=retColor;ux.beginPath();ux.arc(curX,curY,4+pulse*1.5,0,7);ux.fill();
+ ux.strokeStyle='#fff';ux.lineWidth=1;ux.beginPath();ux.arc(curX,curY,7+pulse*1.5,0,7);ux.stroke();
+ ux.font="9px 'Press Start 2P',monospace";ux.fillStyle=retColor;
+ const placeRight=curX<W-150;ux.textAlign=placeRight?'left':'right';
+ ux.fillText(isNegMargin?'0G DANGER!':isBurn?'BURNS':'HOLDS',placeRight?curX+10:curX-10,curY-5);ux.restore();
+ ux.font="9px 'Press Start 2P',monospace";ux.textAlign='left';ux.fillStyle='#fff';
+ ux.fillText((m.n).toUpperCase()+' · '+(GL[S.g]||'SPACE').toUpperCase()+' '+S.g+'G',L,T-10);
+ ux.textAlign='right';ux.fillStyle='#7CE9FF';ux.fillText('U-MIN '+m.l0.toFixed(1)+'%',W-Rm,T-10);
+}
+
+const HAB_BAYS=[
+ {id:'01',name:'AVIONICS',sub:'ETFE wire harness',rx:/etfe/i,x:10,y:24,w:226,h:96,defIdx:4},
+ {id:'02',name:'CREW QUARTERS',sub:'Nomex fire barrier',rx:/nomex/i,x:244,y:24,w:226,h:96,defIdx:3},
+ {id:'03',name:'GALLEY / AIRLOCK',sub:'Cotton-glass fabric',rx:/cotton/i,x:10,y:124,w:226,h:96,defIdx:1},
+ {id:'04',name:'CUPOLA VIEWPORT',sub:'PMMA acrylic window',rx:/acrylic/i,x:244,y:124,w:226,h:96,defIdx:0}
+];
+
+function habMapDraw(t,dt){
+ if(!hx2)return;
+ const W=480,H=230;hx2.fillStyle='#071324';hx2.fillRect(0,0,W,H);grid(hx2,W,H,.05);
+ hx2.font="9px 'Press Start 2P',monospace";hx2.textAlign='left';hx2.fillStyle='#fff';
+ hx2.fillText('HABITAT BULKHEAD TELEMETRY',10,16);
+ hx2.textAlign='right';hx2.fillStyle='#8fb6c8';hx2.fillText('CLICK BAY TO SELECT',470,16);
+ const curEff=eff(),pulse=Math.sin(t*8);
+ HAB_BAYS.forEach(bay=>{
+  let mIdx=MAT.findIndex(m=>bay.rx.test(m.n));if(mIdx<0)mIdx=bay.defIdx;
+  const m=MAT[mIdx]||MAT[0],L_space=loi(m,S.g,S.v),L_1g=loi(m,1,0);
+  const ignites=curEff>=L_space,negMargin=!ignites&&(L_space<L_1g),isSelected=LM===mIdx;
+  let status='NOMINAL',col='#46e68a',bg='rgba(70,230,138,0.08)',border='#204030';
+  if(ignites){status='IGNITES';col='#ff3b24';bg=`rgba(238,59,36,${.18+.12*pulse})`;border='#ff3b24'}
+  else if(negMargin){status='0G MARGIN LOSS';col='#FFC145';bg='rgba(255,193,69,0.12)';border='#FFC145'}
+  hx2.fillStyle=bg;hx2.fillRect(bay.x,bay.y,bay.w,bay.h);
+  hx2.strokeStyle=isSelected?'#7CE9FF':border;hx2.lineWidth=isSelected?2.5:1.2;hx2.strokeRect(bay.x,bay.y,bay.w,bay.h);
+  hx2.strokeStyle=isSelected?'#fff':col;hx2.lineWidth=1.5;
+  const bx=bay.x,by=bay.y,bw=bay.w,bh=bay.h;
+  hx2.beginPath();
+  hx2.moveTo(bx,by+8);hx2.lineTo(bx,by);hx2.lineTo(bx+8,by);
+  hx2.moveTo(bx+bw-8,by);hx2.lineTo(bx+bw,by);hx2.lineTo(bx+bw,by+8);
+  hx2.moveTo(bx,by+bh-8);hx2.lineTo(bx,by+bh);hx2.lineTo(bx+8,by+bh);
+  hx2.moveTo(bx+bw-8,by+bh);hx2.lineTo(bx+bw,by+bh);hx2.lineTo(bx+bw,by+bh-8);
+  hx2.stroke();
+  hx2.font="9px 'Press Start 2P',monospace";hx2.fillStyle=isSelected?'#fff':'#cfe8ff';hx2.textAlign='left';
+  hx2.fillText(`[${bay.id}] ${bay.name}`,bx+8,by+16);
+  hx2.font="14px 'VT323',monospace";hx2.fillStyle='#9cc3d6';
+  hx2.fillText(`${bay.sub} (${m.n})`,bx+8,by+34);
+  hx2.fillText(`0G LIM: ${L_space.toFixed(1)}% | 1G: ${L_1g.toFixed(1)}%`,bx+8,by+54);
+  hx2.fillText(`FIRE-EFF O2: ${curEff.toFixed(1)}% (${(curEff-L_space).toFixed(1)}% margin)`,bx+8,by+72);
+  hx2.save();hx2.fillStyle=col;hx2.font="8px 'Press Start 2P',monospace";hx2.textAlign='right';
+  hx2.fillText(status,bx+bw-8,by+16);
+  if(isSelected){hx2.fillStyle='#7CE9FF';hx2.fillText('◄ ACTIVE',bx+bw-8,by+86)}
+  hx2.restore();
+ });
+}
+if(hm){
+ hm.onclick=ev=>{
+  const r=hm.getBoundingClientRect(),sx=hm.width/r.width,sy=hm.height/r.height;
+  const mx=(ev.clientX-r.left)*sx,my=(ev.clientY-r.top)*sy;
+  HAB_BAYS.forEach(bay=>{
+   if(mx>=bay.x&&mx<=bay.x+bay.w&&my>=bay.y&&my<=bay.y+bay.h){
+    let mIdx=MAT.findIndex(m=>bay.rx.test(m.n));if(mIdx<0)mIdx=bay.defIdx;
+    LM=mIdx;const tabs=$('#mtabs');
+    if(tabs)[...tabs.children].forEach((x,j)=>x.classList.toggle('on',j===LM));
+    sfx.tick();
+   }
+  });
+ };
+}
+
 /* ---------- cards ---------- */
 const cells=[];
 MAT.forEach((m,i)=>{const d=document.createElement('div');d.className='card';
@@ -438,6 +603,42 @@ function ignite(c,g,u){c.mode='run';c.g=g;c.t=0;c.pr=0;c.I=.8;c.b=burns(c.m,g,u)
 function test(c){ignite(c,1,0);const fail=c.b;S.tested[c.i]=fail?'FAIL':'PASS';S.appr[c.i]=!fail;
  setTimeout(()=>{if(S.tested[c.i]===undefined)return;setStamp(c,fail?'FAIL':'PASS',fail?'fail':'pass');const a=c.d.querySelector('.a');a.disabled=fail;if(!fail){a.textContent='Approved ✓';a.style.background='var(--blue)';a.style.color='#fff'}},fail?3000:1800)}
 $('#runAll').onclick=()=>cells.forEach((c,i)=>setTimeout(()=>test(c),i*250));
+
+/* ---------- custom spacecraft material test bench ---------- */
+const cmBtn=$('#cmAdd');
+if(cmBtn){
+ cmBtn.onclick=()=>{
+  const nIn=$('#cmName'),l1In=$('#cmL1'),l0In=$('#cmL0'),vIn=$('#cmV');
+  const name=((nIn&&nIn.value)||'Custom material').trim();
+  const l1=parseFloat(l1In?l1In.value:24)||24,l0=parseFloat(l0In?l0In.value:18.2)||18.2,v=parseFloat(vIn?vIn.value:0.4)||0.4;
+  const cMat={n:name,u:'Custom test coupon',tag:'custom user input',l1,l0,v,c:'#b388ff',b1:'user',b0:'user',bv:'user',bq:'borrowed'};
+  MAT.push(cMat);const newIdx=MAT.length-1;
+  const tabs=$('#mtabs');
+  if(tabs){
+   const tb=document.createElement('button');tb.textContent=cMat.n;
+   tb.onclick=()=>{LM=newIdx;[...tabs.children].forEach((x,j)=>x.classList.toggle('on',j===newIdx));sfx.tick()};
+   tabs.appendChild(tb);
+  }
+  const cards=$('#cards');
+  if(cards){
+   const d=document.createElement('div');d.className='card';
+   d.innerHTML=`<div class="cv"><canvas width="120" height="150"></canvas></div><div class="meta"><h3>${cMat.n}</h3><small>${cMat.u} · Earth limit ${cMat.l1}% O2 · ${cMat.tag}</small><div class="row"><button class="t">Burn 6 in</button><button class="a" disabled>Approve</button></div></div>`;
+   cards.appendChild(d);
+   const rawCanvas=d.querySelector('canvas');
+   const w=document.createElement('div');w.className='crt';
+   rawCanvas.parentNode.insertBefore(w,rawCanvas);w.appendChild(rawCanvas);
+   ['tl','tr','bl','bb'].forEach(k=>{const i=document.createElement('i');i.className='br '+k;w.appendChild(i)});
+   const c={m:cMat,i:newIdx,d,cv:rawCanvas,x:rawCanvas.getContext('2d'),mode:'idle',g:1,b:false,pr:0,t:0,I:0,sp:.2,stamp:null};
+   const ab=d.querySelector('.a');
+   d.querySelector('.t').onclick=()=>test(c);
+   ab.onclick=()=>{if(S.tested[newIdx]!=='PASS')return;S.appr[newIdx]=!S.appr[newIdx];sfx.tick();ab.textContent=S.appr[newIdx]?'Approved ✓':'Approve';ab.style.background=S.appr[newIdx]?'var(--blue)':'';ab.style.color=S.appr[newIdx]?'#fff':''};
+   cells.push(c);
+   test(c);
+  }
+  if(typeof renderData==='function')renderData();
+  sync();sfx.ok();flashX('STRIP ADDED: '+cMat.n.toUpperCase());
+ };
+}
 
 /* ---------- send to the Moon + scoring ---------- */
 function best(){let b=0;for(let o=14;o<=36;o+=.5)for(let p=55;p<=101.3;p+=1)for(const v of[0,4,8]){const e=o*Math.pow(p/M.refKpa,M.presExp);let n=0,h=0;MAT.forEach(m=>{if(e<loi(m,1,0)){n++;if(e>=loi(m,.16,v))h++}});const bd=100*clamp(1-((1-o/100)*p/M.suitKpa-1)/M.bendsSpan,0,1);if(o/100*p>=M.hypoxiaKpa&&!h&&n)b=Math.max(b,Math.round(bd+M.perMaterial*n))}return b}
@@ -528,7 +729,7 @@ function smokeDraw(t,dt){const x=sx2;x.setTransform(.5,0,0,.5,0,0);x.fillStyle='
 /* ---------- main loop + boot ---------- */
 let last=performance.now();
 function loop(now){const dt=Math.min(.05,(now-last)/1000),t=now/1000;last=now;
- if(vis(hc))heroDraw(t,dt);if(vis(lc))labDraw(t,dt);cells.forEach(c=>{if(vis(c.cv))drawCell(c,dt,t)});if(vis(cc))coolDraw(t,dt);if(vis(sc))smokeDraw(t,dt);spinDraw(t,dt);requestAnimationFrame(loop)}
+ if(vis(hc))heroDraw(t,dt);if(vis(lc))labDraw(t,dt);if(uc&&vis(uc))uCurveDraw(t,dt);if(hm&&vis(hm))habMapDraw(t,dt);cells.forEach(c=>{if(vis(c.cv))drawCell(c,dt,t)});if(vis(cc))coolDraw(t,dt);if(vis(sc))smokeDraw(t,dt);spinDraw(t,dt);requestAnimationFrame(loop)}
 const h=new URLSearchParams(location.hash.slice(1));if(h.has('beat')){TARGET=clamp(+h.get('beat')||0,0,200);if(TARGET){const b=$('#beat');b.style.display='inline-block';b.className='chip ok';b.textContent='Challenge: a friend certified a cabin that scored '+TARGET+'. Can you beat it?'}}
 
 /* ===== step 6: PSI knowledge base, ranker, briefing ===== */
@@ -551,7 +752,23 @@ function renderPSI(){const rk=rankPSI(),top=rk.slice(0,3),nm=MAT.filter(m=>eff()
  pl.scrollTop=sc}
 document.querySelectorAll('#pfil button').forEach(b=>b.onclick=()=>{FIL=b.dataset.f;document.querySelectorAll('#pfil button').forEach(x=>x.classList.toggle('on',x===b));sfx.tick();renderPSI()});
 
-function askSI(query){
+/* ===== step 6: Ask the SI Archive (offline deterministic + optional live LLM) ===== */
+const kBtn=$('#siKeyBtn'),kRow=$('#siKeyRow'),kIn=$('#siKey');
+if(kIn){
+ try{kIn.value=localStorage.getItem('ignis-si-key')||''}catch(e){}
+ if(kIn.value&&kBtn)kBtn.style.color='var(--cyan)';
+ kIn.oninput=()=>{try{localStorage.setItem('ignis-si-key',kIn.value.trim())}catch(e){}if(kBtn)kBtn.style.color=kIn.value.trim()?'var(--cyan)':'var(--phos)'};
+}
+if(kBtn&&kRow){
+ kBtn.onclick=()=>{
+  const s=kRow.style.display==='none'||!kRow.style.display;
+  kRow.style.display=s?'flex':'none';
+  sfx.tick();
+  if(s&&kIn)kIn.focus();
+ };
+}
+
+function askSIOffline(query){
  const q=(query||'').trim();if(!q)return;
  const qi=$('#siQuery');if(qi)qi.value=q;
  const ql=q.toLowerCase();
@@ -610,6 +827,69 @@ function askSI(query){
  ans.style.display='block';
  ans.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><h3 style="margin:0">SI ARCHIVE SYNTHESIS · <span style="color:var(--amb)">${topRec.acronym}</span></h3><span class="tag" style="margin:0">${topRec.pillar.toUpperCase()}</span></div><p><b>VERDICT</b>${verdict}</p><p><b>HARDWARE RULE</b>${rule}</p><div><b style="font:8px var(--px);color:var(--amb);display:block;margin:6px 0 4px">VERIFIED SOURCES</b>${srcs.map(r=>`${chip(r)} <a class="pchip" href="${rl(r)[1]}" target="_blank" rel="noopener">[${r.acronym} · ${rl(r)[0]} ↗]</a>`).join(' ')}</div>`;
  sfx.ok();
+}
+
+async function askSI(query){
+ const q=(query||'').trim();if(!q)return;
+ const qi=$('#siQuery');if(qi)qi.value=q;
+ const kIn=$('#siKey');
+ let apiKey=(kIn?kIn.value.trim():'')||(function(){try{return localStorage.getItem('ignis-si-key')||''}catch(e){return ''}})();
+ const ans=$('#siAnswer');
+
+ if(apiKey&&ans){
+  ans.style.display='block';
+  ans.innerHTML=`<div style="padding:16px;text-align:center;font:13px 'Press Start 2P',monospace;color:var(--cyan)"><span class="blink">●</span> QUERYING LIVE SI MODEL...</div>`;
+  try{
+   const topPSI=rankPSI().slice(0,5).map(x=>`${x.r.acronym}: ${x.r.finding} Hardware Rule: ${x.r.hardwareRule}`).join('\n');
+   const sysPrompt=`You are IGNIS-0G, a NASA Physical Sciences Informatics (PSI) microgravity combustion expert.
+Current cabin telemetry:
+- O2: ${S.o2.toFixed(1)}% | Pressure: ${S.p.toFixed(1)} kPa | Vent airflow: ${S.v.toFixed(1)} cm/s | Gravity: ${S.g} g
+- Fire-effective O2: ${eff().toFixed(1)}% | Crew pO2: ${pO2().toFixed(1)} kPa | Bends protection: ${bends().toFixed(0)}%
+
+Top matched NASA PSI Investigations:
+${topPSI}
+
+Analyze the user question and return a valid JSON object ONLY with the following exact keys:
+"verdict": 2-3 precise sentences tying live cabin telemetry to empirical test numbers (e.g. BASS-II O4, SoFIE-GEL Case 3, GMT175-T9).
+"hardwareRule": actionable spacecraft engineering design rule.
+"acronym": top relevant PSI acronym (e.g. BASS-II, FLEX, SAME, SoFIE-GEL).
+Do not wrap in markdown or backticks. Return pure JSON.`;
+
+   let raw='';
+   if(apiKey.startsWith('AIza')){
+    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,{
+     method:'POST',
+     headers:{'Content-Type':'application/json'},
+     body:JSON.stringify({contents:[{role:'user',parts:[{text:sysPrompt+'\n\nUser Question: '+q}]}],generationConfig:{temperature:0.2}})
+    });
+    if(!res.ok)throw new Error('Gemini API '+res.status);
+    const d=await res.json();
+    raw=d.candidates?.[0]?.content?.parts?.[0]?.text||'';
+   }else{
+    const res=await fetch('https://api.groq.com/openai/v1/chat/completions',{
+     method:'POST',
+     headers:{'Content-Type':'application/json','Authorization':'Bearer '+apiKey},
+     body:JSON.stringify({model:'llama-3.1-8b-instant',messages:[{role:'system',content:sysPrompt},{role:'user',content:q}],temperature:0.2})
+    });
+    if(!res.ok)throw new Error('API '+res.status);
+    const d=await res.json();
+    raw=d.choices?.[0]?.message?.content||'';
+   }
+
+   const clean=raw.replace(/```(?:json)?/g,'').replace(/```/g,'').trim();
+   const p=JSON.parse(clean);
+   if(p&&p.verdict&&p.hardwareRule){
+    const matchedRec=PSI_DB.find(r=>r.acronym.toLowerCase()===(p.acronym||'').toLowerCase())||rankPSI()[0].r;
+    const srcs=[matchedRec,PSI_DB.find(r=>r.pillar===matchedRec.pillar&&r.id!==matchedRec.id)].filter(Boolean);
+    ans.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><h3 style="margin:0">SI LIVE SYNTHESIS · <span style="color:var(--amb)">${matchedRec.acronym}</span> <span style="font:9px var(--px);color:#46e68a">[LIVE LLM]</span></h3><span class="tag" style="margin:0">${matchedRec.pillar.toUpperCase()}</span></div><p><b>VERDICT</b>${p.verdict}</p><p><b>HARDWARE RULE</b>${p.hardwareRule}</p><div><b style="font:8px var(--px);color:var(--amb);display:block;margin:6px 0 4px">VERIFIED SOURCES</b>${srcs.map(r=>`${chip(r)} <a class="pchip" href="${rl(r)[1]}" target="_blank" rel="noopener">[${r.acronym} · ${rl(r)[0]} ↗]</a>`).join(' ')}</div>`;
+    sfx.ok();
+    return;
+   }
+  }catch(err){
+   console.warn('Live SI query failed, falling back to deterministic offline model:',err);
+  }
+ }
+ askSIOffline(q);
 }
 const sBtn=$('#siSynth');if(sBtn)sBtn.onclick=()=>askSI($('#siQuery').value);
 const sIn=$('#siQuery');if(sIn)sIn.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();askSI(e.target.value)}};
