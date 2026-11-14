@@ -151,6 +151,13 @@ input[type=range]{accent-color:var(--red)}
 .pchip.p{color:var(--amb);border-color:var(--amb)}.pchip:hover{background:rgba(124,233,255,.2)}
 #briefTxt h3{font:10px/1.6 var(--px);margin:0 0 8px;color:#fff;text-shadow:2px 2px 0 var(--ink)}
 #briefTxt .nm{color:#ff9a8a}#briefTxt .ok{color:#7CE9FF}
+.deckcard .pchip{font:8px var(--px)!important;color:var(--phos)!important;border:2px solid var(--phos)!important;background:rgba(7,19,36,.75)!important;padding:4px 7px!important;border-radius:3px!important;box-shadow:none!important;text-shadow:none!important;cursor:pointer;margin:2px 4px 2px 0}
+.deckcard .pchip:hover{background:rgba(124,233,255,.25)!important;color:#fff!important;filter:none!important;transform:none!important}
+#siQuery{background:#071324;border:3px solid var(--ink);color:var(--phos);font:17px var(--pf);padding:8px 10px;flex:1;outline:none;border-radius:6px}
+#siQuery::placeholder{color:#4b708b}
+#siAnswer h3{font:10px/1.6 var(--px);margin:0 0 8px;color:#fff;text-shadow:2px 2px 0 var(--ink)}
+#siAnswer p{font:16px/1.3 var(--pf)!important;color:#dff6ff!important;margin:6px 0}
+#siAnswer p b{font:8px var(--px);color:var(--amb);display:block;margin-bottom:3px}
 .scrollcrt{height:540px}.plist{position:absolute;inset:0;overflow:auto;padding:24px 24px 18px;scrollbar-color:var(--gcy) #031019;scrollbar-width:thin}
 .rcard{border:3px solid var(--ink);background:#0a1c30;padding:10px 12px;margin-bottom:10px;color:#dff6ff;box-shadow:0 0 0 2px rgba(41,168,224,.3)}
 .rh{display:flex;justify-content:space-between;gap:8px;align-items:center}.rh b{font:10px/1.5 var(--px);color:#fff}
@@ -218,7 +225,7 @@ input[type=range]{accent-color:var(--red)}
   <div class="sh"><span>1</span><h2>Set the cabin</h2></div>
   <p class="sub">Artemis crews breathe thin, oxygen-rich air so they avoid the bends when they suit up. That same air makes things burn. Find an atmosphere that keeps the crew breathing <b>and</b> keeps your materials honest. The two chambers below react to every dial.</p>
   <div id="beat" class="chip" style="display:none;margin-bottom:14px;font-size:15px"></div>
-  <div class="presets"><button data-p="34,56.5,8">Artemis cabin</button><button data-p="21,101.3,0">Space station air</button><button class="go" id="xcsv">Download modeling CSV</button><button id="xjson">Download JSON</button><span id="xmsg" style="font-weight:700;color:var(--blue)"></span></div>
+  <div class="presets"><button data-p="34,56.5,8">Artemis cabin</button><button data-p="21,101.3,0">Space station air</button><button id="mitigate">⚡ Mitigate cabin</button><button class="go" id="xcsv">Download modeling CSV</button><button id="xjson">Download JSON</button><span id="xmsg" style="font-weight:700;color:var(--blue)"></span></div>
   <div class="ctl">
     <div><label for="o2">Oxygen <output id="o2v"></output></label><input id="o2" type="range" min="14" max="36" step=".1"></div>
     <div><label for="pr">Cabin pressure <output id="prv"></output></label><input id="pr" type="range" min="55" max="101.3" step=".1"></div>
@@ -272,7 +279,22 @@ input[type=range]{accent-color:var(--red)}
   <div class="sh"><span>6</span><h2>SI investigation ranker</h2></div>
   <p class="sub">Move any dial in step 1 and NASA's 24 PSI combustion investigations re-rank by how closely they tested your cabin. The briefing turns that match into a plain verdict, with the citations behind it.</p>
   <div class="deckcard"><div id="briefTxt"></div>
-   <div class="tabs" style="margin:12px 0 0"><button class="go" id="xcsv2">DOWNLOAD MODELING CSV</button><button id="xjson2">DOWNLOAD JSON</button><span id="xmsg2" style="font:9px var(--px);color:var(--amb)"></span></div></div>
+   <div style="margin-top:14px;border-top:2px solid rgba(7,19,36,.6);padding-top:12px">
+    <div style="font:9px/1.6 var(--px);color:#fff;text-shadow:1px 1px 0 var(--ink);margin-bottom:8px">ASK THE SI ARCHIVE</div>
+    <div style="display:flex;gap:8px;align-items:stretch">
+     <input id="siQuery" type="text" placeholder="Ask about 0g combustion, tests, limits..." aria-label="Ask the SI Archive">
+     <button class="go" id="siSynth" type="button" style="white-space:nowrap">SYNTHESIZE</button>
+    </div>
+    <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center">
+     <span style="font:8px var(--px);color:#cfe8ff;margin-right:2px">PRESETS:</span>
+     <button class="pchip" type="button" data-q="Why does 34% O2 fail Earth rules?">Why does 34% O2 fail Earth rules?</button>
+     <button class="pchip" type="button" data-q="How do 2–15 cm/s vents feed fire?">How do 2–15 cm/s vents feed fire?</button>
+     <button class="pchip" type="button" data-q="Why did cameras miss FLEX fires?">Why did cameras miss FLEX fires?</button>
+     <button class="pchip" type="button" data-q="How do we tune 0g smoke alarms?">How do we tune 0g smoke alarms?</button>
+    </div>
+    <div id="siAnswer" style="display:none;margin-top:12px;border:2px dashed rgba(124,233,255,.4);background:rgba(7,19,36,.65);padding:12px 14px;border-radius:6px"></div>
+   </div>
+   <div class="tabs" style="margin:14px 0 0"><button class="go" id="xcsv2">DOWNLOAD MODELING CSV</button><button id="xjson2">DOWNLOAD JSON</button><span id="xmsg2" style="font:9px var(--px);color:var(--amb)"></span></div></div>
   <p class="fig" style="margin-top:24px">Fig. 4 · Ranked PSI telemetry (scroll)</p>
   <div class="win"><div class="crt scrollcrt"><i class="br tl"></i><i class="br tr"></i><i class="br bl"></i><i class="br bb"></i><div class="plist" id="plist"></div></div>
    <div class="deckbar"><div class="tabs" id="pfil"><b>PILLAR</b><button class="on" data-f="">ALL (24)</button><button data-f="Flammability">FLAMMABILITY</button><button data-f="Smoke Detection">DETECTION</button><button data-f="Suppression">SUPPRESSION</button><button data-f="Gas Flames">GAS FLAMES</button></div></div></div>
@@ -377,9 +399,12 @@ const stale=()=>{S.tested=[];S.appr=[];S.score=0;cells.forEach(c=>reset(c));$('#
 function sync(){$('#o2').value=S.o2;$('#pr').value=S.p;$('#vt').value=S.v;
  $('#o2v').textContent=S.o2.toFixed(1)+' %';$('#prv').textContent=S.p.toFixed(1)+' kPa';$('#vtv').textContent=S.v.toFixed(1)+' cm/s';
  const ok=pO2()>=M.hypoxiaKpa,c=$('#chO');c.textContent='Crew oxygen pressure '+pO2().toFixed(1)+' kPa · '+(ok?'breathable':'HYPOXIC (needs '+M.hypoxiaKpa+')');c.className='chip '+(ok?'ok':'bad');
- $('#chB').textContent='Bends protection '+bends().toFixed(0)+'%';$('#barB').style.width=bends()+'%';$('#chE').textContent='Fire-effective O2 '+eff().toFixed(1)+'%';if(typeof renderPSI==='function'){renderPSI();updSpin()}if(typeof renderLive==='function')renderLive()}
+ $('#chB').textContent='Bends protection '+bends().toFixed(0)+'%';$('#barB').style.width=bends()+'%';$('#chE').textContent='Fire-effective O2 '+eff().toFixed(1)+'%';
+ const mb=$('#mitigate');if(mb){const bad=MAT.some(m=>eff()>=loi(m,S.g,S.v)&&eff()<loi(m,1,0))||!ok;mb.classList.toggle('go',bad)}
+ if(typeof renderPSI==='function'){renderPSI();updSpin()}if(typeof renderLive==='function')renderLive()}
 [['o2','o2'],['pr','p'],['vt','v']].forEach(([id,k])=>$('#'+id).oninput=e=>{S[k]=+e.target.value;sync();stale();sfx.tick()});
 document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{[S.o2,S.p,S.v]=b.dataset.p.split(',').map(Number);sync();stale();sfx.tick()});
+const mitBtn=$('#mitigate');if(mitBtn)mitBtn.onclick=()=>{S.v=0;S.o2=21.0;S.p=101.3;sync();stale();if(typeof renderPSI==='function')renderPSI();if(typeof updSpin==='function')updSpin();if(typeof renderLive==='function')renderLive();flashX('MITIGATED: VENT 0 CM/S · 21% O2 · SAFE');sfx.ok()};
 
 /* ---------- lab: live dual chamber ---------- */
 const lc=$('#lab'),lx=lc.getContext('2d');let LM=3;const LB=[[],[]];
@@ -525,6 +550,70 @@ function renderPSI(){const rk=rankPSI(),top=rk.slice(0,3),nm=MAT.filter(m=>eff()
   d.innerHTML=`<div class="rh"><b>${i+1}. ${r.acronym}</b><span class="mt" style="--m:${x.m}">MATCH ${x.m}%</span></div><div class="rt">${r.title}</div><div><span class="tag">${r.pillar.toUpperCase()}</span><span class="tag">O2 ${f(r.o2Range)}%</span><span class="tag">${r.flowRange[0]===0&&r.flowRange[1]===0?'QUIESCENT':f(r.flowRange)+' CM/S'}</span><span class="tag">${f(r.gRange)} G</span><span class="tag">${r.p} KPA</span></div>${r.note?`<div class="nt">CATALOGUE NOTE: ${r.note}</div>`:''}<p><b>KEY FINDING</b>${r.finding}</p><p><b>NEXT-GEN HARDWARE RULE</b>${r.hardwareRule}</p><div>${chip(r)}<a class="pchip${r.doi?'':' p'}" href="${u}" target="_blank" rel="noopener">[${l} ↗]</a></div>`;pl.appendChild(d)});
  pl.scrollTop=sc}
 document.querySelectorAll('#pfil button').forEach(b=>b.onclick=()=>{FIL=b.dataset.f;document.querySelectorAll('#pfil button').forEach(x=>x.classList.toggle('on',x===b));sfx.tick();renderPSI()});
+
+function askSI(query){
+ const q=(query||'').trim();if(!q)return;
+ const qi=$('#siQuery');if(qi)qi.value=q;
+ const ql=q.toLowerCase();
+ let verdict='',rule='',srcs=[],topRec=null;
+ const isO2=/34|o2|oxygen|earth|rule|fail|margin|limit|flammab|normox/.test(ql);
+ const isVent=/vent|feed|cm\/s|flow|quench|blow|fan|draft|speed|hvac|stair/.test(ql);
+ const isFlex=/flex|cool|camera|miss|droplet|vapor|suppress|thermal|invis|dark/.test(ql);
+ const isSmoke=/smoke|alarm|tune|same|particle|detect|aerosol|daft|clump/.test(ql);
+
+ if(isO2 && !isFlex && !isSmoke && !isVent){
+  topRec=PSI_DB.find(r=>r.id==='bass-ii')||PSI_DB[1];
+  verdict=`At your cabin's ${S.o2.toFixed(1)}% O2 (${S.p.toFixed(1)} kPa, fire-effective ${eff().toFixed(1)}% O2), materials certified safe under Earth's 21% O2 rules readily ignite. In BASS-II flight testing, acrylic rods (tests O4 and O12) sustained combustion down to 13.6% O2, while SoFIE-GEL Case 3 burned at 13.54% O2—a 2.4-point negative margin of safety below Earth's 16.0% limit. SIBAL fabric ignited and spread in GMT178-T11 (17.1% O2) despite failing to ignite below 16.8% (GMT175-T9).`;
+  rule=topRec.hardwareRule;
+  srcs=[topRec,PSI_DB.find(r=>r.id==='sofie-gel'),PSI_DB.find(r=>r.id==='acme-bre-2')].filter(Boolean);
+ }else if(isVent && !isFlex && !isSmoke){
+  topRec=PSI_DB.find(r=>r.id==='bass')||PSI_DB[0];
+  const inBand=S.v>=M.dangerLo&&S.v<=M.dangerHi;
+  verdict=`Your cabin airflow of ${S.v.toFixed(1)} cm/s ${inBand?'falls directly into the critical 2–15 cm/s forced-convection danger zone where microgravity flames thrive':S.v<M.dangerLo?'is parked below the 2 cm/s danger floor, promoting radiative extinction':'exceeds the 15 cm/s danger band, driving flames toward convective blow-off'}. Without buoyancy, quiescent air (<2 cm/s) forces radiative extinction, as verified when SIBAL fabric quenched at 2.2 cm/s in GMT45-T4 and GMT100-T13. However, gentle airflow replenishes oxidizer without reaching aerodynamic blow-off (seen in SoFIE-GEL Case 2 at 34.28 cm/s and BASS-II rod O7 at fan 97), sustaining combustion where Earth flames self-extinguish.`;
+  rule=topRec.hardwareRule;
+  srcs=[topRec,PSI_DB.find(r=>r.id==='bass-ii'),PSI_DB.find(r=>r.id==='slice')].filter(Boolean);
+ }else if(isFlex||/suppress|extinguish/.test(ql)){
+  topRec=PSI_DB.find(r=>r.id==='flex')||PSI_DB[17];
+  verdict=`Visible flame extinction does not indicate that combustion has ceased in microgravity. In FLEX and FLEX-2 ISS droplet experiments, heptane fuel droplets continued steady vaporization under 600–800 K second-stage cool flame chemistry that emits zero visible soot radiation. Standard optical spacecraft cameras registered a dark chamber, allowing undetected low-temperature reactions to persist until suppressant hold-times cleared or catastrophic re-ignition occurred.`;
+  rule=topRec.hardwareRule;
+  srcs=[topRec,PSI_DB.find(r=>r.id==='flex-2'),PSI_DB.find(r=>r.id==='cfi')].filter(Boolean);
+ }else if(isSmoke){
+  topRec=PSI_DB.find(r=>r.id==='same')||PSI_DB[15];
+  verdict=`Under ${S.g} g with negligible buoyant clearing, smoke particulates experience prolonged residence times, coagulating into aggregates 2–3× larger than Earth soot as proven by NASA's SAME (SAE 2009-01-2468) and DAFT flight telemetry. Traditional Earth ionization and single-band optical detectors calibrated to sub-micron particles remain blind to these large clusters until obscuration is critical. Safe spacecraft detection requires dual-wavelength optical scattering combined with particle-size discriminator windows.`;
+  rule=topRec.hardwareRule;
+  srcs=[topRec,PSI_DB.find(r=>r.id==='same-r'),PSI_DB.find(r=>r.id==='daft-2')].filter(Boolean);
+ }else{
+  const stopWords=new Set(['what','when','where','which','who','whom','this','that','with','from','have','been','were','does','will','would','could','should','test','tests','about','tell']);
+  const words=ql.split(/\W+/).filter(w=>w.length>2&&!stopWords.has(w));
+  let bestScore=-1,bestR=PSI_DB[0];
+  PSI_DB.forEach(r=>{
+   let sc=0;
+   const ac=r.acronym.toLowerCase();
+   const ti=r.title.toLowerCase();
+   const blob=(r.finding+' '+r.hardwareRule+' '+r.earthSpinoff+' '+r.basis+' '+r.pillar).toLowerCase();
+   words.forEach(w=>{
+    if(ac.includes(w))sc+=25;
+    else if(ti.includes(w))sc+=15;
+    else if(blob.includes(w))sc+=3;
+   });
+   if(ac===ql||ti===ql)sc+=50;
+   if(sc>bestScore){bestScore=sc;bestR=r}
+  });
+  topRec=bestR;
+  verdict=`Correlating ${topRec.acronym} (${topRec.title}) against active cabin telemetry (${S.o2.toFixed(1)}% O2, ${S.p.toFixed(1)} kPa, ${S.v.toFixed(1)} cm/s flow at ${S.g} g, fire-effective ${eff().toFixed(1)}% O2): ${topRec.finding} Ground-calibrated testing cannot reproduce these zero-g convective boundary conditions.`;
+  rule=topRec.hardwareRule;
+  srcs=[topRec,PSI_DB.find(r=>r.pillar===topRec.pillar&&r.id!==topRec.id)].filter(Boolean);
+ }
+
+ const ans=$('#siAnswer');
+ if(!ans)return;
+ ans.style.display='block';
+ ans.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><h3 style="margin:0">SI ARCHIVE SYNTHESIS · <span style="color:var(--amb)">${topRec.acronym}</span></h3><span class="tag" style="margin:0">${topRec.pillar.toUpperCase()}</span></div><p><b>VERDICT</b>${verdict}</p><p><b>HARDWARE RULE</b>${rule}</p><div><b style="font:8px var(--px);color:var(--amb);display:block;margin:6px 0 4px">VERIFIED SOURCES</b>${srcs.map(r=>`${chip(r)} <a class="pchip" href="${rl(r)[1]}" target="_blank" rel="noopener">[${r.acronym} · ${rl(r)[0]} ↗]</a>`).join(' ')}</div>`;
+ sfx.ok();
+}
+const sBtn=$('#siSynth');if(sBtn)sBtn.onclick=()=>askSI($('#siQuery').value);
+const sIn=$('#siQuery');if(sIn)sIn.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();askSI(e.target.value)}};
+document.querySelectorAll('.pchip[data-q]').forEach(b=>b.onclick=()=>{sfx.tick();askSI(b.dataset.q)});
 
 /* ===== modeling data extractor (CSV + JSON) ===== */
 const FLOWS=[0,2,5,8,12,16,20,30,40];
