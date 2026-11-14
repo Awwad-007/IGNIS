@@ -636,7 +636,7 @@ if(cmBtn){
    test(c);
   }
   if(typeof renderData==='function')renderData();
-  sync();sfx.ok();flashX('STRIP ADDED: '+cMat.n.toUpperCase());
+  sync();if(typeof renderPSI==='function')renderPSI();sfx.ok();flashX('STRIP ADDED: '+cMat.n.toUpperCase());
  };
 }
 
@@ -756,8 +756,8 @@ document.querySelectorAll('#pfil button').forEach(b=>b.onclick=()=>{FIL=b.datase
 const kBtn=$('#siKeyBtn'),kRow=$('#siKeyRow'),kIn=$('#siKey');
 if(kIn){
  try{kIn.value=localStorage.getItem('ignis-si-key')||''}catch(e){}
- if(kIn.value&&kBtn)kBtn.style.color='var(--cyan)';
- kIn.oninput=()=>{try{localStorage.setItem('ignis-si-key',kIn.value.trim())}catch(e){}if(kBtn)kBtn.style.color=kIn.value.trim()?'var(--cyan)':'var(--phos)'};
+ if(kIn.value&&kBtn)kBtn.style.color='var(--amb)';
+ kIn.oninput=()=>{try{localStorage.setItem('ignis-si-key',kIn.value.trim())}catch(e){}if(kBtn)kBtn.style.color=kIn.value.trim()?'var(--amb)':'var(--phos)'};
 }
 if(kBtn&&kRow){
  kBtn.onclick=()=>{
@@ -838,7 +838,7 @@ async function askSI(query){
 
  if(apiKey&&ans){
   ans.style.display='block';
-  ans.innerHTML=`<div style="padding:16px;text-align:center;font:13px 'Press Start 2P',monospace;color:var(--cyan)"><span class="blink">●</span> QUERYING LIVE SI MODEL...</div>`;
+  ans.innerHTML=`<div style="padding:16px;text-align:center;font:13px 'Press Start 2P',monospace;color:var(--phos)"><span class="blink">●</span> QUERYING LIVE SI MODEL...</div>`;
   try{
    const topPSI=rankPSI().slice(0,5).map(x=>`${x.r.acronym}: ${x.r.finding} Hardware Rule: ${x.r.hardwareRule}`).join('\n');
    const sysPrompt=`You are IGNIS-0G, a NASA Physical Sciences Informatics (PSI) microgravity combustion expert.
@@ -857,7 +857,7 @@ Do not wrap in markdown or backticks. Return pure JSON.`;
 
    let raw='';
    if(apiKey.startsWith('AIza')){
-    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,{
+    const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,{
      method:'POST',
      headers:{'Content-Type':'application/json'},
      body:JSON.stringify({contents:[{role:'user',parts:[{text:sysPrompt+'\n\nUser Question: '+q}]}],generationConfig:{temperature:0.2}})

@@ -9,3 +9,6 @@ Thumbs.db
 
 # Logs & temp files
 *.log
+
+# Archive bundles
+*.zip

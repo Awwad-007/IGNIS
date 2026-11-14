@@ -53,12 +53,20 @@ The Step 6 PSI Mission Ranker correlates user-configured cabin parameters (O₂,
 ## 🕹️ Interactive Modules
 
 1. **Hero Gravity Candle (`#gs`)**: Real-time canvas simulation showing the physical transition of a candle flame from an elongated 1 g buoyant teardrop to a spherical, diffusion-limited 0 g blue flame.
-2. **Step 1: Set the Cabin Atmosphere (`#s1`)**: Three environmental controls (O₂ %, Cabin Pressure kPa, Ventilation cm/s) driving hypoxia partial pressure floors, bends protection scores, fire-effective oxygen indices, dual-chamber split simulation canvas (`#lab`), and modeling CSV/JSON export engines.
-3. **Step 2: Six-Inch Material Strip Tests (`#s2`)**: Five candidate materials (*Acrylic panel*, *Cotton-glass cloth*, *Silicone rubber*, *Nomex fabric*, *ETFE insulation*) with individual ignition benches and batch "Burn all five" execution.
+2. **Step 1: Set the Cabin Atmosphere (`#s1`)**:
+   - Environmental controls (O₂ %, Cabin Pressure kPa, Ventilation cm/s) driving hypoxia partial pressure floors, bends protection scores, fire-effective oxygen indices, dual-chamber split simulation canvas (`#lab`), and modeling CSV/JSON export engines.
+   - **`⚡ Mitigate cabin` Emergency Sequence (`#mitigate`)**: A 1-click NASA protocol that instantly parks ventilation (`S.v = 0 cm/s`) to eliminate convective draft acceleration, restores safe normoxic 21% O₂ at 101.3 kPa, and clears negative margin hazards.
+   - **Live U-Curve Flammability Oscilloscope (`#uCurve`)**: Plots Limiting O₂ Index (12% to 36%) vs. airflow (0–40 cm/s), rendering the Earth 1g dashed reference limit, the microgravity U-curve, a shaded Negative Margin Danger Pocket, and a live cabin coordinate crosshair.
+   - **4-Zone Habitat Bulkhead Telemetry (`#habMap`)**: Real-time pixel-art schematic of four habitat compartments (Avionics · ETFE, Crew Quarters · Nomex, Galley · Cotton-Glass, Cupola Viewport · Acrylic) with dynamic status glows (NOMINAL, 0G MARGIN LOSS, IGNITES) and interactive material synchronization.
+3. **Step 2: Six-Inch Material Strip Tests (`#s2`)**:
+   - Five candidate spaceflight materials (*Acrylic panel*, *Cotton-glass cloth*, *Silicone rubber*, *Nomex fabric*, *ETFE insulation*) with individual ignition benches and batch "Burn all five" execution.
+   - **Custom Material Test Bench (`#cmAdd`)**: Add and burn custom material strips with user-specified Earth 1g limits, microgravity floors, and spread scales, minting CRT cartridge cards dynamically and appending them to the live evaluation suite and Appendix A Data Room.
 4. **Step 3: Lunar Cabin Launch & Scoring (`#s3`)**: Certifies approved materials at lunar gravity (0.16 g) under active ventilation, calculating bends decompression protection plus material retention score, or flagging hidden fire disasters with zero score.
 5. **Step 4: Cool Flame Extinguishment (`#s4`)**: Demonstrates invisible low-temperature droplet combustion with optical camera vs. thermal infrared view toggles and suppressant dwell-time protocols.
 6. **Step 5: Smoke Detector Tuning (`#s5`)**: Compares Earth vs. microgravity smoke aggregation and tunes sensor particle-size thresholds and dual-wavelength detection windows.
-7. **Step 6: PSI Investigation Ranker (`#s6`)**: Ranks all 24 NASA PSI flight records against active cabin parameters with full briefing summaries and pillar filters.
+7. **Step 6: PSI Investigation Ranker & "Ask the SI Archive" (`#s6`)**:
+   - Ranks all 24 NASA PSI flight records against active cabin parameters with full briefing summaries and pillar filters.
+   - **Ask the SI Archive Console (`#siQuery`, `#siSynth`, `#siKeyBtn`)**: Hybrid offline and live LLM query interface. Features deterministic offline synthesis linking live telemetry to empirical ISS tests (`BASS-II`, `SoFIE-GEL`, `SAME`, `FLEX`), alongside an optional live API key mode connecting to Gemini 2.5 Flash or Groq with automatic offline fallback.
 8. **Step 7: Earth Spin-Off Translator (`#s7`)**: Translates space discoveries into terrestrial safety systems (clean-agent mist suppression for data centers, smart home smoke alarms, and high-rise stairwell smoke-control HVAC logic).
 9. **Step 8: Reality Check Calibration Charts (`#s8`)**: Side-by-side validation charts (`#rcA` through `#rcD`) contrasting initial model assumptions vs. calibrated models against raw published ISS flight data.
 10. **Appendix A: Data Room (`#data`)**: Complete tabular documentation of all 16 underlying datasets, constants, references, and full-package JSON/CSV downloaders.
