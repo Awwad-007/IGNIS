@@ -1,0 +1,653 @@
+{
+  "psiUrl": "https://www.nasa.gov/physical-sciences-informatics-psi/psi-investigations-by-research-area/",
+  "investigations": [
+    {
+      "id": "bass",
+      "acronym": "BASS",
+      "title": "Burning and Suppression of Solids",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        5,
+        19
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20150008962",
+      "finding": "Thin-fabric flames quench when ventilation drops toward ~2 cm/s, so ventilation speed, not buoyancy, decides whether a small fire survives.",
+      "hardwareRule": "Expose ventilation speed as a flammability control variable: log cabin flow on every smoke alarm and provide a one-command HVAC park state.",
+      "earthSpinoff": "High-rise HVAC smoke control: the quench-to-blow-off airflow band informs floor-level damper and stairwell-pressurisation logic that should starve a small fire instead of feeding it.",
+      "anom": false,
+      "note": "",
+      "basis": "Sourced: four BASS tests at 21% O2 and 5, 10, 11 and 19 cm/s (BASS-II Summary Report, Table 7.1)."
+    },
+    {
+      "id": "bass-ii",
+      "acronym": "BASS-II",
+      "title": "Burning and Suppression of Solids – II",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        1
+      ],
+      "o2Range": [
+        13.6,
+        22.2
+      ],
+      "flowRange": [
+        0,
+        55
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20160000593",
+      "finding": "Materials burned at lower oxygen in microgravity than in normal gravity. Extinction came from radiative quenching below ~2 cm/s and from blow-off near 40 cm/s.",
+      "hardwareRule": "Do not accept a 1g pass at face value. Add a low-speed (2–15 cm/s) forced-flow burn test and certify against the lower microgravity limit.",
+      "earthSpinoff": "High-rise HVAC smoke control: BASS-II shows how a gentle air stream both rescues and kills a flame, so smoke-control fans can be tuned to avoid the speeds that sustain a fire.",
+      "anom": true,
+      "note": "",
+      "basis": "Sourced: PMMA rod tests at 13.6–22.2% O2 and 0–55 cm/s flow (Olson & Ferkul 2017; NTRS 20160000593). Test logs: NASA/TM-20210011385."
+    },
+    {
+      "id": "saffire",
+      "acronym": "Saffire I–VI",
+      "title": "Spacecraft Fire Experiment (Saffire I–VI)",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        27
+      ],
+      "flowRange": [
+        5,
+        30
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20170008805",
+      "finding": "In the large module the flame spread more slowly than in smaller microgravity tunnels, so small-sample results cannot simply be scaled up to spacecraft size.",
+      "hardwareRule": "Qualify materials at spacecraft-relevant length scales, not only 5 cm coupons. Instrument heat release plus CO and CO2 rise, which outran temperature and pressure rise in Saffire VI.",
+      "earthSpinoff": "Firefighter PPE: large-scale fabric burns give heat-release and fabric-char data that help engineers design lighter outer layers that resist flame growth rather than merely survive it.",
+      "anom": false,
+      "note": "",
+      "basis": "Partly sourced: flows of 5, 20 and 30 cm/s and 26.9% O2 at 76.1 kPa (Saffire-V) from NTRS records; other bounds approximate."
+    },
+    {
+      "id": "sofie-mist",
+      "acronym": "SoFIE-MIST",
+      "title": "Solid Fuel Ignition and Extinction – Material Ignition and Suppression Test",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        16,
+        30
+      ],
+      "flowRange": [
+        0.5,
+        15
+      ],
+      "p": 70.3,
+      "doi": null,
+      "ntrs": "20200000361",
+      "finding": "Radiant pre-heating (a hot neighbouring surface) widens the ignitable region in microgravity, so a material that survives a cold-wall test can ignite beside a hot panel.",
+      "hardwareRule": "Add an external radiant-flux axis to ignition qualification; require ignition maps at habitat O2 and pressure, not a single cold-wall point.",
+      "earthSpinoff": "High-rise HVAC smoke control: ignition-and-extinction maps versus flow and radiant flux guide duct-insulation and damper-placement decisions near hot equipment.",
+      "anom": true,
+      "note": "",
+      "basis": "Approximate. MIST maps ignition and extinction of PMMA cylinders versus flow, O2 and radiant flux; exact matrix not verified here."
+    },
+    {
+      "id": "sofie-gel",
+      "acronym": "SoFIE-GEL",
+      "title": "Solid Fuel Ignition and Extinction – Growth and Extinction Limit",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        13,
+        28
+      ],
+      "flowRange": [
+        0.2,
+        80
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20240007628",
+      "finding": "Fuel temperature changes flammability: a warm thick object extinguishes later than a cold one, so cabin thermal history belongs in the margin calculation.",
+      "hardwareRule": "Carry a fuel-temperature term in flammability margin. A warm component is a different material than the cold coupon that was tested.",
+      "earthSpinoff": "Firefighter PPE: heat-soak behaviour of thick solids informs insulated gear that stays below ignition temperature of trapped fuels during prolonged exposure.",
+      "anom": false,
+      "note": "",
+      "basis": "Sourced: 4 cm PMMA spheres in 0.2–80 cm/s flow and 13–28% O2 at one atmosphere (NTRS 20240007628)."
+    },
+    {
+      "id": "sofie-rtdfs",
+      "acronym": "SoFIE-RTDFS",
+      "title": "Solid Fuel Ignition and Extinction – Residence Time Driven Flame Spread",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        35
+      ],
+      "flowRange": [
+        0,
+        30
+      ],
+      "p": 70.3,
+      "doi": null,
+      "ntrs": "20190030735",
+      "finding": "Theory predicts steady spread cannot be sustained on fuel beyond a critical thickness even at high O2, so thickness is a hidden safety lever in microgravity.",
+      "hardwareRule": "Track fuel thickness as a first-class material attribute and prefer thick-section cabin plastics where function allows.",
+      "earthSpinoff": "Smart smoke alarms: thickness-dependent burning gives alarm firmware a physical reason to expect different smoke onset signatures from thin films versus bulk plastics.",
+      "anom": false,
+      "note": "",
+      "basis": "Approximate. Thin PMMA sheets with pressure varied along the normoxic curve; exact matrix not verified here."
+    },
+    {
+      "id": "sofie-smurf",
+      "acronym": "SoFIE-SMURF",
+      "title": "Solid Fuel Ignition and Extinction – Spacecraft Materials Microgravity Research on Flammability (SMuRF)",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        35
+      ],
+      "flowRange": [
+        5,
+        20
+      ],
+      "p": 70.3,
+      "doi": null,
+      "ntrs": "20200000361",
+      "finding": "Real spacecraft materials, not only PMMA, are being burned at habitat atmospheres, so 1g certification gaps can be quantified per material.",
+      "hardwareRule": "Maintain a per-material microgravity flammability table and flag every item whose 1g pass margin is under ~3 oxygen points.",
+      "earthSpinoff": "Firefighter PPE: flat-sheet spread data on technical fabrics supports lightweight layered garments tested for flame growth, not only char length.",
+      "anom": false,
+      "note": "",
+      "basis": "Approximate. 30 cm × 5 cm flat thin samples; test matrix not verified here."
+    },
+    {
+      "id": "acme-bre",
+      "acronym": "ACME BRE",
+      "title": "Advanced Combustion via Microgravity Experiments – Burning Rate Emulator",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        40
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20210021781",
+      "finding": "Burns lasted minutes with no airflow at all in crew-vehicle atmospheres, so \"nothing is moving the air\" is not a safe assumption.",
+      "hardwareRule": "Do not treat zero ventilation as a quench guarantee in enriched atmospheres; pair HVAC park with active suppression.",
+      "earthSpinoff": "High-rise HVAC smoke control: quiescent burning in enriched air supports shelter-in-place zones where fans stop but fire suppression must stay armed.",
+      "anom": true,
+      "note": "",
+      "basis": "Partly sourced: quiescent burns of minutes in crew-vehicle atmospheres; O2 up to 40% from ISS status reports. Pressure approximate."
+    },
+    {
+      "id": "acme-bre-2",
+      "acronym": "BRE-2",
+      "title": "Advanced Combustion via Microgravity Experiments – Burning Rate Emulator, Part 2",
+      "pillar": "Flammability",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        40
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 70.3,
+      "doi": null,
+      "ntrs": "20210021781",
+      "finding": "High-oxygen, reduced-pressure burns extend flammability beyond what ambient-pressure Earth methods capture.",
+      "hardwareRule": "Require flammability screening at the exact habitat pressure and O2; do not interpolate from sea-level tests.",
+      "earthSpinoff": "Firefighter PPE: oxygen-enriched burn behaviour matters for gear used near medical oxygen and hyperbaric rooms.",
+      "anom": true,
+      "note": "",
+      "basis": "Partly sourced: a 40% O2 / 60% N2 supply was used for BRE part 2. Pressure approximate."
+    },
+    {
+      "id": "acme-e-field",
+      "acronym": "ACME E-FIELD Flames",
+      "title": "Advanced Combustion via Microgravity Experiments – Electric Field Flames",
+      "pillar": "Gas Flames",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20210021781",
+      "finding": "Electric fields can steer and stabilise small flames, which is a candidate lever for active flame control in a habitat.",
+      "hardwareRule": "Evaluate electrode-based flame steering as a low-mass supplement to mist suppression near critical avionics.",
+      "earthSpinoff": "Smart smoke alarms: field-sensitive flame behaviour hints at ion-based early detection that responds to incipient flames faster than smoke.",
+      "anom": false,
+      "note": "",
+      "basis": "Approximate. Small diffusion flame in an applied electric field, quiescent air."
+    },
+    {
+      "id": "acme-cld",
+      "acronym": "ACME Coflow",
+      "title": "Advanced Combustion via Microgravity Experiments – Coflow Laminar Diffusion Flame (CLD Flame)",
+      "pillar": "Gas Flames",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        30
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20210021781",
+      "finding": "Without buoyancy the flame structure, soot formation and sensor response are set by coflow speed and diluent, not by gravity.",
+      "hardwareRule": "Calibrate flame sensors against microgravity coflow flames, since 1g teardrop signatures do not transfer.",
+      "earthSpinoff": "Smart smoke alarms: clean, laminar soot-formation data improves models that separate cooking particles from true combustion smoke.",
+      "anom": false,
+      "note": "",
+      "basis": "Approximate. Coflow speeds estimated; exact matrix not verified here."
+    },
+    {
+      "id": "acme-s-flame",
+      "acronym": "ACME s-Flame",
+      "title": "Advanced Combustion via Microgravity Experiments – Structure and Response of Spherical Diffusion Flames",
+      "pillar": "Gas Flames",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20210021781",
+      "finding": "The ghostly blue spherical flame is the true no-buoyancy baseline: it is dim, slow and easy for cameras tuned to yellow flames to miss.",
+      "hardwareRule": "Add blue-band (CH and OH emission) flame sensing alongside soot-luminosity cameras.",
+      "earthSpinoff": "Firefighter PPE: blue, low-soot flames radiate differently; this informs thermal-imaging calibration for crews reading dim fires.",
+      "anom": false,
+      "note": "",
+      "basis": "Approximate. Quiescent spherical flame; exact matrix not verified here."
+    },
+    {
+      "id": "acme-flame-design",
+      "acronym": "ACME Flame Design",
+      "title": "Advanced Combustion via Microgravity Experiments – Flame Design",
+      "pillar": "Gas Flames",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20210021781",
+      "finding": "Soot yield changes sharply with where the diluent is added, which changes smoke signature and detector response.",
+      "hardwareRule": "Characterise smoke from diluted-fuel scenarios when specifying optical detector thresholds.",
+      "earthSpinoff": "Smart smoke alarms: soot-versus-diluent maps help firmware recognise low-soot fires that conventional photoelectric alarms under-read.",
+      "anom": false,
+      "note": "The brief named \"ACME FIST\". No NASA or PSI record with that name was found, so this confirmed ACME investigation (Flame Design, soot control) stands in.",
+      "basis": "Approximate. Quiescent flames with diluent supplied with the fuel."
+    },
+    {
+      "id": "spice",
+      "acronym": "SPICE",
+      "title": "Smoke Point In Coflow Experiment",
+      "pillar": "Smoke Detection",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        30
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": null,
+      "finding": "The smoke point, where a flame starts to emit soot, shifts without buoyancy, changing when a fire begins to produce detectable smoke.",
+      "hardwareRule": "Set the onset threshold of smoke detection from microgravity smoke-point data, not from 1g flames.",
+      "earthSpinoff": "Smart smoke alarms: soot-onset physics supports alarms that alert earlier on smouldering fuel and ignore steam and cooking aerosols.",
+      "anom": false,
+      "note": "",
+      "basis": "Approximate. Smoke-point measurements across coflow speeds."
+    },
+    {
+      "id": "slice",
+      "acronym": "SLICE",
+      "title": "Structure and Liftoff in Combustion Experiment",
+      "pillar": "Gas Flames",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        30
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": "20210021781",
+      "finding": "Flame liftoff and blow-off behave differently without buoyancy, which affects when ventilation extinguishes versus sustains a flame.",
+      "hardwareRule": "Use microgravity liftoff data to set the upper (blow-off) flow bound of any ventilation-based mitigation.",
+      "earthSpinoff": "High-rise HVAC smoke control: liftoff and blow-off speeds help bound the air velocity at which smoke-extraction fans start to extinguish rather than feed a flame.",
+      "anom": false,
+      "note": "",
+      "basis": "Approximate. Flame liftoff and structure versus flow."
+    },
+    {
+      "id": "same",
+      "acronym": "SAME",
+      "title": "Smoke Aerosol Measurement Experiment",
+      "pillar": "Smoke Detection",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        10
+      ],
+      "p": 101.3,
+      "doi": "10.4271/2009-01-2468",
+      "ntrs": "20040053578",
+      "finding": "With negligible buoyancy, smoke particles have more time to coagulate into larger aggregates than 1g detectors were designed around.",
+      "hardwareRule": "Specify multi-wavelength optical scatter and particle-size discrimination, tuned for large low-g aggregates, with a dust-versus-smoke classifier.",
+      "earthSpinoff": "Smart smoke alarms: particle-size discrimination separates smoke from dust and steam, the route to false-alarm-free home detectors.",
+      "anom": true,
+      "note": "",
+      "basis": "Approximate. Overheated materials in cabin air; DOI and SAME characterisation sourced from SAE."
+    },
+    {
+      "id": "same-r",
+      "acronym": "SAME-R",
+      "title": "Smoke Aerosol Measurement Experiment – Reflight",
+      "pillar": "Smoke Detection",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        10
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": null,
+      "finding": "The reflight repeated the measurement with clean sample grids, so the large-aggregate finding is not a contamination artefact.",
+      "hardwareRule": "Require replicate low-g smoke datasets before locking a detector threshold, and log the TEM-verified size distribution.",
+      "earthSpinoff": "Smart smoke alarms: a clean, replicated size distribution is the training set for machine-learning smoke classifiers that shrug off cooking fumes.",
+      "anom": true,
+      "note": "",
+      "basis": "Approximate. Reflight with cleaned TEM sample grids after contamination in the first run."
+    },
+    {
+      "id": "flex",
+      "acronym": "FLEX",
+      "title": "Flame Extinguishment Experiment",
+      "pillar": "Suppression",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        10,
+        40
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": "10.1007/s12217-014-9372-2",
+      "ntrs": null,
+      "finding": "After the visible flame died, heptane droplets kept vaporising with an invisible cool flame. A dark chamber does not mean the fire is out.",
+      "hardwareRule": "After any suppression event, verify extinction with thermal or chemiluminescence sensing, not optical flame detection, and keep agent flowing until confirmed.",
+      "earthSpinoff": "Firefighter PPE: hidden low-temperature burning after the flame disappears argues for gear and thermal-camera protocols that treat a \"dark\" fire as live.",
+      "anom": true,
+      "note": "",
+      "basis": "Sourced: ambient O2 mole fraction 0.1–0.4 and 0.7–3.0 atm (Dietrich et al. 2014). Quiescent droplet."
+    },
+    {
+      "id": "flex-2",
+      "acronym": "FLEX-2",
+      "title": "Flame Extinguishment Experiment – 2",
+      "pillar": "Suppression",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        15,
+        40
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": "10.1007/s12217-024-10115-x",
+      "ntrs": null,
+      "finding": "At 1 atm and below there is a prolonged cool-flame burn that ends only at a finite droplet size; at 5 atm the flame fades gradually rather than snapping out.",
+      "hardwareRule": "Schedule suppressant dwell time by pressure: low-pressure cabins need longer agent hold to outlast cool-flame burning.",
+      "earthSpinoff": "High-rise HVAC smoke control: cool-flame persistence argues for holding mist and inert-gas release in server rooms and ducts well beyond visible extinction.",
+      "anom": true,
+      "note": "",
+      "basis": "Approximate O2 range; 1 atm and 5 atm cases described in the cited paper."
+    },
+    {
+      "id": "flex-2j",
+      "acronym": "FLEX-2J",
+      "title": "Flame Extinguishment Experiment – 2J",
+      "pillar": "Suppression",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        15,
+        40
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": null,
+      "finding": "Part of the FLEX family that exposed cool flames; the suppression lesson (visible extinction is not full extinction) carries over.",
+      "hardwareRule": "Include a post-suppression hold-and-verify stage in every automated extinguishing sequence.",
+      "earthSpinoff": "Firefighter PPE: confirms that crews should treat apparently extinguished compartments as live until thermal checks clear them.",
+      "anom": true,
+      "note": "",
+      "basis": "Approximate. Test matrix not verified here."
+    },
+    {
+      "id": "daft",
+      "acronym": "DAFT",
+      "title": "Dust and Aerosol Measurement Feasibility Test",
+      "pillar": "Smoke Detection",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        10
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": null,
+      "finding": "Proved the measurement concept needed for smoke work: a commercial particle counter can size aerosols in orbit.",
+      "hardwareRule": "Reuse flight-proven condensation particle counting as the second channel beside optical scatter in a dual-channel smoke sensor.",
+      "earthSpinoff": "Smart smoke alarms: low-cost particle counting is the hardware path to alarms that report particle size, not just obscuration.",
+      "anom": false,
+      "note": "The brief named \"CFE\". In NASA catalogues CFE is the Capillary Flow Experiment (fluid physics), not combustion, so the PSI-listed DAFT stands in.",
+      "basis": "Approximate. Ambient cabin air, six hours of operation."
+    },
+    {
+      "id": "daft-2",
+      "acronym": "DAFT-2",
+      "title": "Dust and Aerosol Measurement Feasibility Test – 2",
+      "pillar": "Smoke Detection",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        21,
+        21
+      ],
+      "flowRange": [
+        0,
+        10
+      ],
+      "p": 101.3,
+      "doi": null,
+      "ntrs": null,
+      "finding": "Follow-up feasibility data tightens how reliably a cabin sensor can tell background dust from the onset of smoke.",
+      "hardwareRule": "Maintain a dust-background baseline per module and alarm on departures from it, not on a fixed obscuration level.",
+      "earthSpinoff": "Smart smoke alarms: per-room dust baselines cut nuisance alarms near construction work and kitchens.",
+      "anom": false,
+      "note": "The brief named \"FEANIX\". No NASA or PSI combustion record with that name was found, so the PSI-listed DAFT-2 stands in.",
+      "basis": "Approximate. Follow-up feasibility test; matrix not verified here."
+    },
+    {
+      "id": "cfi",
+      "acronym": "Cool Flames",
+      "title": "Cool Flames Investigation (CFI)",
+      "pillar": "Suppression",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        10,
+        40
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": "10.1016/j.combustflame.2015.01.012",
+      "ntrs": null,
+      "finding": "Cool flames burn at low temperature with almost no visible light, so they can survive suppression that a camera reports as success.",
+      "hardwareRule": "Pair optical flame sensors with a thermal or UV/IR channel that can see sub-visible burning.",
+      "earthSpinoff": "Firefighter PPE: thermal cameras that can see non-luminous burning change how crews clear a compartment safely.",
+      "anom": true,
+      "note": "",
+      "basis": "Approximate. Droplet cool-flame regime; exact matrix not verified here."
+    },
+    {
+      "id": "cfi-g",
+      "acronym": "ACME CFI-G",
+      "title": "Advanced Combustion via Microgravity Experiments – Cool Flames Investigation with Gases",
+      "pillar": "Gas Flames",
+      "gRange": [
+        0,
+        0
+      ],
+      "o2Range": [
+        15,
+        40
+      ],
+      "flowRange": [
+        0,
+        0
+      ],
+      "p": 101.3,
+      "doi": "10.1016/j.proci.2022.07.015",
+      "ntrs": "20210021781",
+      "finding": "Cool diffusion flames of gaseous fuels appeared without any enhancement, so spontaneous low-temperature burning is possible in a spacecraft.",
+      "hardwareRule": "Do not assume low-temperature burning needs an ignition aid; qualify suppression against cool-flame reignition for 10 minutes.",
+      "earthSpinoff": "High-rise HVAC smoke control: cool-flame reignition risk argues for sustained inert-gas hold times in enclosed plant rooms.",
+      "anom": true,
+      "note": "The brief named \"ZBOT/Combustion\". ZBOT is the Zero Boil-Off Tank fluids experiment, not a combustion investigation, so ACME CFI-G (gaseous cool flames) stands in.",
+      "basis": "Approximate. Quiescent gaseous cool diffusion flames without added heat, plasma or ozone."
+    }
+  ]
+}

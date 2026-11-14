@@ -1,0 +1,1519 @@
+{
+  "meta": {
+    "title": "IGNIS-0G · The Six-Inch Test · data package",
+    "version": "1.1",
+    "provenance": "Model parameters are approximate and tuned to published trends. Identifiers (DOI, NTRS) are included only where verified; null or blank means not verified in this build."
+  },
+  "model": {
+    "quenchAmp": 9.75,
+    "quenchDecay": 2.3,
+    "blowAmp": 1,
+    "blowRef": 40,
+    "buoyCoef": 25,
+    "presExp": 0.4,
+    "refKpa": 101.3,
+    "spreadPresExp": 0.3,
+    "hypoxiaKpa": 16.5,
+    "suitKpa": 29.6,
+    "bendsSpan": 1.8,
+    "dangerLo": 2,
+    "dangerHi": 15,
+    "perMaterial": 8,
+    "blowExp": 2
+  },
+  "materials": [
+    {
+      "n": "Acrylic panel",
+      "u": "window shields",
+      "l1": 16,
+      "l0": 13.6,
+      "v": 0.053,
+      "c": "#9fb8cc",
+      "tag": "ISS-measured limits",
+      "b1": "measured",
+      "b0": "measured",
+      "bv": "fitted",
+      "bq": "fitted",
+      "src": "Floor and 1 g blowoff (13.6% and 16%): BASS-II poster, acrylic rods. Spread scale fitted to 39 measured rates (Table 5.1). Quench and blow-off fitted to 7 measured limits (GEL Table 1, Table 2.1)."
+    },
+    {
+      "n": "Cotton-glass cloth",
+      "u": "wipes, curtains",
+      "l1": 16.9,
+      "l0": 16.5,
+      "qa": 3.1,
+      "v": 3.7,
+      "c": "#c9b68a",
+      "tag": "fitted to ISS tests",
+      "b1": "derived",
+      "b0": "fitted",
+      "bv": "fitted",
+      "bq": "fitted",
+      "src": "SIBAL fabric. Floor and quench fitted to 33 measured outcomes (Table 7.1). Spread scale fitted to rates read from Figure 7.4. Earth limit derived from the floor; there is no 1 g measurement in the sources."
+    },
+    {
+      "n": "Silicone rubber",
+      "u": "seals, gaskets",
+      "l1": 25,
+      "l0": 19.5,
+      "v": 0.053,
+      "c": "#b9b3c9",
+      "tag": "estimate, no ISS data",
+      "b1": "estimate",
+      "b0": "estimate",
+      "bv": "borrowed from acrylic",
+      "bq": "borrowed from acrylic",
+      "src": "No ISS data for silicone in the sources used. Limits are estimates."
+    },
+    {
+      "n": "Nomex fabric",
+      "u": "crew quarters",
+      "l1": 28,
+      "l0": 22.3,
+      "v": 0.053,
+      "c": "#d4a95f",
+      "tag": "floor from ISS tests",
+      "b1": "estimate",
+      "b0": "bound from measured",
+      "bv": "borrowed from acrylic",
+      "bq": "borrowed from acrylic",
+      "src": "Three BASS-II tests: no sustained flame at 21.0 to 22.2% O2 and 8 to 15 cm/s, so the floor is set just above 22.2%. The true floor may be higher. The Earth limit is an estimate."
+    },
+    {
+      "n": "ETFE insulation",
+      "u": "wiring",
+      "l1": 30,
+      "l0": 23.5,
+      "v": 0.053,
+      "c": "#8fd1c2",
+      "tag": "estimate, no ISS data",
+      "b1": "estimate",
+      "b0": "estimate",
+      "bv": "borrowed from acrylic",
+      "bq": "borrowed from acrylic",
+      "src": "No ISS data for ETFE in the sources used. Limits are estimates."
+    }
+  ],
+  "timeline": [
+    {
+      "y": "1997",
+      "t": "A fire aboard Mir burned for 14 minutes before it consumed itself.",
+      "src": "The Register",
+      "url": "https://www.theregister.com/2024/02/16/nasa_fire_experiment/"
+    },
+    {
+      "y": "2007",
+      "t": "SAME gives the first real-time smoke data from orbit.",
+      "src": "NIST SAME report",
+      "url": "https://www.nist.gov/node/1633726"
+    },
+    {
+      "y": "2012",
+      "t": "FLEX droplets keep burning after the visible flame dies.",
+      "src": "Nayagam et al. 2012",
+      "url": "https://doi.org/10.1016/j.combustflame.2012.07.012"
+    },
+    {
+      "y": "2016",
+      "t": "Saffire-I: the first large fire lit inside a spacecraft.",
+      "src": "NTRS 20170008805",
+      "url": "https://ntrs.nasa.gov/citations/20170008805"
+    },
+    {
+      "y": "2017–22",
+      "t": "ACME: six gas-flame experiments on the ISS.",
+      "src": "NTRS 20210021781",
+      "url": "https://ntrs.nasa.gov/citations/20210021781"
+    },
+    {
+      "y": "2024",
+      "t": "Saffire-VI, the last of six, burns on a Cygnus.",
+      "src": "NTRS 20240002981",
+      "url": "https://ntrs.nasa.gov/citations/20240002981"
+    },
+    {
+      "y": "Late 2026",
+      "t": "FM2 plans the first fire on the Moon, four samples.",
+      "src": "Fox Weather",
+      "url": "https://www.foxweather.com/earth-space/nasa-prepares-light-fire-moon",
+      "fut": true
+    }
+  ],
+  "ticker": [
+    "The standard flame test is run on Earth",
+    "NASA lit over 1,500 fires on the ISS for ACME",
+    "Saffire burned a 94 cm fabric sample inside a Cygnus",
+    "Cool flames burn with almost no visible light",
+    "Materials have burned in microgravity at lower oxygen than on Earth",
+    "FM2 plans the first fire on the Moon in late 2026"
+  ],
+  "facts": [
+    {
+      "h": "The standard.",
+      "t": "NASA-STD-6001B relies on a short flame test performed under Earth gravity. FM2, a sealed chamber that will burn four solid samples on the lunar surface, is planned to close that gap in late 2026.",
+      "link": [
+        "Coverage",
+        "https://www.foxweather.com/earth-space/nasa-prepares-light-fire-moon"
+      ]
+    },
+    {
+      "h": "Lower oxygen, still burning.",
+      "t": "In BASS-II on the ISS, acrylic rods were tested at 13.6 to 22.2% oxygen with 0 to 55 cm/s of flow, and materials burned at lower oxygen than in normal gravity.",
+      "link": [
+        "NTRS 20160000593",
+        "https://ntrs.nasa.gov/citations/20160000593"
+      ]
+    },
+    {
+      "h": "Reduced pressure doesn't save you.",
+      "t": "UC Berkeley's ISS tests saw flames spread at 19.8% oxygen and 60 kPa.",
+      "link": [
+        "Berkeley Engineering",
+        "https://engineering.berkeley.edu/news/2024/12/nasa-funded-project-offers-new-insights-into-fire-behavior-in-space/"
+      ]
+    },
+    {
+      "h": "Cool flames.",
+      "t": "Heptane droplets continued to vaporize after the visible flame went out, which the FLEX team attributed to low-temperature cool-flame chemistry.",
+      "link": [
+        "doi 10.1007/s12217-014-9372-2",
+        "https://doi.org/10.1007/s12217-014-9372-2"
+      ]
+    },
+    {
+      "h": "Smoke.",
+      "t": "SAME produced the first real-time aerosol data in a microgravity spacecraft.",
+      "link": [
+        "SAE 2009-01-2468",
+        "https://doi.org/10.4271/2009-01-2468"
+      ]
+    },
+    {
+      "h": "Large scale.",
+      "t": "Saffire burned samples in a free-flying Cygnus to see spacecraft-size fires.",
+      "link": [
+        "Saffire VI, NTRS 20240002981",
+        "https://ntrs.nasa.gov/citations/20240002981"
+      ]
+    },
+    {
+      "h": "Honest scope.",
+      "t": "The flame model is calibrated to measured ISS data where data exists: acrylic limits and spread rates (BASS-II, SoFIE-GEL), fabric limits and spread rates (BASS and BASS-II) and Nomex ignition (BASS-II). Silicone and ETFE have no ISS data in the sources used here, so their numbers are estimates. Nothing on this page is measured at lunar gravity or in Artemis atmospheres: those scenarios are model extrapolations, and NASA’s FM2 will provide the first lunar data. The animations in steps 4, 5 and 7 are illustrations. This is not NASA-STD-6001 testing.",
+      "link": null
+    }
+  ],
+  "baseline": {
+    "note": "The first version of the model, before it was checked against measured data.",
+    "quenchAmp": 3.6,
+    "quenchDecay": 1.8,
+    "blowAmp": 4.5,
+    "blowRef": 40,
+    "blowExp": 3,
+    "m": {
+      "PMMA": {
+        "l1": 17.4,
+        "l0": 13.6,
+        "v": 1.6
+      },
+      "SIBAL": {
+        "l1": 16.5,
+        "l0": 14,
+        "v": 5.5
+      },
+      "NOMEX": {
+        "l1": 28,
+        "l0": 20.5,
+        "v": 0.9
+      }
+    }
+  },
+  "tm": {
+    "label": "Olson et al. 2021, BASS-II Summary Report (NASA/TM-20210011385)",
+    "url": "https://ntrs.nasa.gov/citations/20210011385"
+  },
+  "nca": [
+    [
+      "M1",
+      1,
+      2.2,
+      1,
+      [
+        9
+      ],
+      [
+        0.071
+      ],
+      6.4,
+      22.2,
+      21.9
+    ],
+    [
+      "M2",
+      3,
+      2.2,
+      1,
+      [
+        20,
+        15
+      ],
+      [
+        0.052,
+        0.033
+      ],
+      22.9,
+      22.2,
+      21.2
+    ],
+    [
+      "M3",
+      5,
+      2.2,
+      1,
+      [
+        10,
+        20
+      ],
+      [
+        0.029,
+        0.024
+      ],
+      20.1,
+      20.8,
+      19.7
+    ],
+    [
+      "M4",
+      5,
+      2.2,
+      2,
+      [
+        5,
+        3
+      ],
+      [
+        0.045,
+        0.033
+      ],
+      19.8,
+      21.8,
+      19.8
+    ],
+    [
+      "M5",
+      3,
+      2.2,
+      2,
+      [
+        10
+      ],
+      [
+        0.071
+      ],
+      27.2,
+      22.2,
+      19
+    ],
+    [
+      "M6",
+      1,
+      2.2,
+      2,
+      [
+        10,
+        8
+      ],
+      null,
+      16.8,
+      21.8,
+      20.7
+    ],
+    [
+      "M7",
+      1,
+      1.2,
+      2,
+      [
+        10,
+        6,
+        5,
+        3
+      ],
+      [
+        0.106,
+        0.099,
+        0.083,
+        0.07
+      ],
+      18.4,
+      18.9,
+      18.4
+    ],
+    [
+      "M8",
+      2,
+      1.2,
+      2,
+      [
+        10,
+        6,
+        5
+      ],
+      [
+        0.057,
+        0.056,
+        0.04
+      ],
+      25.2,
+      19.1,
+      18.2
+    ],
+    [
+      "M9",
+      3,
+      1.2,
+      2,
+      [
+        14
+      ],
+      [
+        0.025
+      ],
+      16.8,
+      18,
+      17.6
+    ],
+    [
+      "M10",
+      4,
+      1.2,
+      2,
+      [
+        15,
+        10
+      ],
+      [
+        0.0373,
+        0.03
+      ],
+      30.5,
+      20.1,
+      18.6
+    ],
+    [
+      "M11",
+      5,
+      1.2,
+      2,
+      [
+        21,
+        15,
+        13
+      ],
+      [
+        0.048,
+        0.028,
+        0.022
+      ],
+      28.5,
+      20,
+      18.5
+    ],
+    [
+      "M12",
+      2,
+      2.2,
+      2,
+      [
+        12,
+        10
+      ],
+      null,
+      16.2,
+      21.7,
+      20.4
+    ],
+    [
+      "M13",
+      4,
+      2.2,
+      2,
+      [
+        6,
+        5,
+        4
+      ],
+      [
+        0.047,
+        0.035,
+        0.033
+      ],
+      20.5,
+      20.8,
+      19
+    ],
+    [
+      "M14",
+      2,
+      2.2,
+      1,
+      [
+        15,
+        14,
+        10
+      ],
+      [
+        0.0624,
+        0.055,
+        0.0353
+      ],
+      15.4,
+      22.2,
+      21.6
+    ],
+    [
+      "M15",
+      4,
+      2.2,
+      1,
+      [
+        20
+      ],
+      [
+        0.045
+      ],
+      22,
+      21,
+      20
+    ],
+    [
+      "M16",
+      1,
+      2.2,
+      2,
+      [
+        5,
+        3,
+        2
+      ],
+      [
+        0.144,
+        0.1309,
+        0.1062
+      ],
+      8.4,
+      19.2,
+      18.7
+    ],
+    [
+      "M17",
+      2,
+      2.2,
+      2,
+      [
+        5,
+        4,
+        3
+      ],
+      [
+        0.053,
+        0.042,
+        0.026
+      ],
+      30.7,
+      18.8,
+      17.1
+    ],
+    [
+      "M18",
+      3,
+      2.2,
+      2,
+      [
+        10,
+        8
+      ],
+      [
+        0.026,
+        0.013
+      ],
+      25.5,
+      17.9,
+      16.8
+    ],
+    [
+      "M19",
+      4,
+      2.2,
+      2,
+      [
+        10,
+        6
+      ],
+      [
+        0.027,
+        0.0159
+      ],
+      25.7,
+      19,
+      17.4
+    ],
+    [
+      "M20",
+      5,
+      2.2,
+      2,
+      [
+        10
+      ],
+      [
+        0.012
+      ],
+      16.5,
+      18,
+      17.4
+    ]
+  ],
+  "rods": [
+    [
+      "O1",
+      6.35,
+      "clear",
+      "not recorded",
+      22.2,
+      21.7,
+      "sustained",
+      "Flows stepped 20 to 1 cm/s; sooty long flame at high flow; rod broke off the holder"
+    ],
+    [
+      "O2",
+      6.35,
+      "clear",
+      "not recorded",
+      22.2,
+      21.9,
+      "sustained",
+      "Ignited at 2 cm/s; dim sooty flame at low flows"
+    ],
+    [
+      "O3a",
+      6.35,
+      "clear",
+      "concurrent",
+      18,
+      18,
+      "quenched",
+      "Flame went out as flow was turned down (probably overshot)"
+    ],
+    [
+      "O3b",
+      6.35,
+      "clear",
+      "concurrent",
+      18,
+      17.7,
+      "sustained",
+      "Sooty even at low flow; blue only at zero air reading"
+    ],
+    [
+      "O4",
+      9.525,
+      "clear",
+      "stagnation",
+      14.8,
+      13.6,
+      "quenched",
+      "Extinguished at pot 0.36"
+    ],
+    [
+      "O5a",
+      12.7,
+      "clear",
+      "concurrent",
+      15.1,
+      14.2,
+      "blowoff",
+      "Hard to ignite; burned 9 min; blew off at pot 4.0"
+    ],
+    [
+      "O5b",
+      12.7,
+      "clear",
+      "concurrent",
+      14.2,
+      14.1,
+      "no sustained flame",
+      "Would not sustain a flame without the igniter on"
+    ],
+    [
+      "O6",
+      6.35,
+      "clear",
+      "stagnation",
+      16.7,
+      16,
+      "quenched",
+      "Flow stepped down; flame out at pot 0.275 (from the test matrix)"
+    ],
+    [
+      "O7",
+      6.35,
+      "clear",
+      "stagnation",
+      16,
+      15.5,
+      "blowoff",
+      "Blowoff at fan 97"
+    ],
+    [
+      "O8a",
+      6.35,
+      "clear",
+      "stagnation",
+      15.7,
+      15.3,
+      "quenched",
+      "Quench at pot 0.31"
+    ],
+    [
+      "O8b",
+      6.35,
+      "clear",
+      "stagnation",
+      15.5,
+      15.2,
+      "blowoff",
+      "Blowoff at fan 78 (pot 6.0)"
+    ],
+    [
+      "O9",
+      6.35,
+      "clear",
+      "stagnation",
+      15,
+      14.8,
+      "blowoff",
+      "Blowoff at fan 68 (pot 4.0)"
+    ],
+    [
+      "O10",
+      6.35,
+      "clear",
+      "concurrent",
+      16.7,
+      16.1,
+      "blowoff",
+      "Leading edge blew out; blowoff at maximum flow"
+    ],
+    [
+      "O11",
+      6.35,
+      "black",
+      "stagnation",
+      15.4,
+      14.8,
+      "blowoff",
+      "Blowoff at pot 6.0"
+    ],
+    [
+      "O12",
+      9.525,
+      "clear",
+      "stagnation",
+      13.6,
+      13.5,
+      "no sustained flame",
+      "Flame only with the igniter; died on igniter removal"
+    ],
+    [
+      "O13a",
+      12.7,
+      "clear",
+      "concurrent",
+      15.9,
+      14.6,
+      "quenched",
+      "Burned at 5 pot settings; self-extinguished after 3+ min at pot 0.31"
+    ],
+    [
+      "O13b",
+      12.7,
+      "clear",
+      "concurrent",
+      14.6,
+      14.4,
+      "no sustained flame",
+      "Stayed lit less than a minute"
+    ],
+    [
+      "O14",
+      6.35,
+      "black",
+      "concurrent",
+      16.3,
+      15.3,
+      "quenched",
+      "Quenched at pot 0.28"
+    ],
+    [
+      "O15a",
+      9.525,
+      "clear",
+      "stagnation",
+      17.1,
+      16.7,
+      "quenched",
+      "Extinguished at pot 0.32"
+    ],
+    [
+      "O15b",
+      9.525,
+      "clear",
+      "stagnation",
+      16.7,
+      15.6,
+      "quenched",
+      "Reburn of the same rod; extinguished at pot 0.27"
+    ],
+    [
+      "O16",
+      9.525,
+      "clear",
+      "stagnation",
+      14.5,
+      14.5,
+      "no sustained flame",
+      "Brief flame only"
+    ],
+    [
+      "O17",
+      6.35,
+      "clear",
+      "concurrent",
+      15.1,
+      14.3,
+      "blowoff",
+      "Leading-edge blowoff at fan 72; did not recover"
+    ],
+    [
+      "O18",
+      6.35,
+      "clear",
+      "stagnation",
+      15.2,
+      14.5,
+      "blowoff",
+      "Stagnation region blew out at pot 4.0; would not restabilize"
+    ],
+    [
+      "O19",
+      6.35,
+      "clear",
+      "concurrent",
+      15.3,
+      14.6,
+      "quenched",
+      "Quenched at pot 0.288"
+    ]
+  ],
+  "nomex": [
+    [
+      "F1",
+      "2014-02-19",
+      "Nomex III (natural)",
+      "concurrent",
+      9.5,
+      22.2,
+      "Ignited briefly but did not spread; extinguished while the igniter was still on"
+    ],
+    [
+      "F2",
+      "2014-07-28",
+      "Nomex III (natural)",
+      "concurrent",
+      15,
+      21,
+      "Tried to ignite; flame would not sustain"
+    ],
+    [
+      "F3",
+      "2014-08-01",
+      "Nomex III (natural)",
+      "concurrent",
+      8,
+      21.7,
+      "Brief ignition flash; no sustained flame"
+    ],
+    [
+      "F4",
+      "2018-06-24",
+      "Japan wax candle (not Nomex)",
+      "stagnation",
+      3,
+      17.4,
+      "Blue flame at 3 cm/s; flow reduced in steps; extinguished at the lowest setting"
+    ]
+  ],
+  "radext": [
+    [
+      21,
+      "10 ± 5",
+      15,
+      7.5
+    ],
+    [
+      16,
+      "30 ± 5",
+      35,
+      10
+    ]
+  ],
+  "sibalspread": [
+    [
+      2.2,
+      21,
+      5,
+      1.75
+    ],
+    [
+      2.2,
+      21,
+      10,
+      2.74
+    ],
+    [
+      2.2,
+      18.8,
+      2.4,
+      0.8
+    ],
+    [
+      2.2,
+      18.8,
+      2.6,
+      0.85
+    ],
+    [
+      2.2,
+      17.6,
+      3,
+      0.85
+    ],
+    [
+      2.2,
+      17.1,
+      4,
+      1
+    ],
+    [
+      2.2,
+      16.9,
+      3.6,
+      0.9
+    ],
+    [
+      1.2,
+      21,
+      11,
+      2.05
+    ],
+    [
+      1.2,
+      21,
+      19,
+      2.75
+    ],
+    [
+      1.2,
+      17.2,
+      11,
+      1.55
+    ]
+  ],
+  "gel": {
+    "label": "Li, T’ien, Ferkul, Olson & Johnston, SoFIE-GEL extinction paper, Table 1 (NTRS 20240007628)",
+    "url": "https://ntrs.nasa.gov/citations/20240007628",
+    "material": "PMMA sphere, 4 cm diameter, ISS Combustion Integrated Rig, about 1 atm",
+    "rows": [
+      {
+        "case": 1,
+        "sample": "1409B",
+        "mode": "quenching",
+        "location": "inside duct",
+        "flow": 4.83,
+        "reynolds": 128.8,
+        "strain": 3.63,
+        "o2": 14.21,
+        "p_atm": 1.04,
+        "loss": 0.36
+      },
+      {
+        "case": 2,
+        "sample": "1408A",
+        "mode": "blowoff",
+        "location": "inside duct",
+        "flow": 34.28,
+        "reynolds": 914.1,
+        "strain": 25.71,
+        "o2": 14.99,
+        "p_atm": 1.06,
+        "loss": 0.95
+      },
+      {
+        "case": 3,
+        "sample": "1402C",
+        "mode": "intermediate",
+        "location": "inside duct",
+        "flow": 11.5,
+        "reynolds": 306.7,
+        "strain": 8.63,
+        "o2": 13.54,
+        "p_atm": 1.07,
+        "loss": 0.37
+      },
+      {
+        "case": 4,
+        "sample": "1409C",
+        "mode": "quenching",
+        "location": "duct exit",
+        "flow": 0.44,
+        "reynolds": 11.7,
+        "strain": 0.33,
+        "o2": 20.77,
+        "p_atm": 1.03,
+        "loss": 0.17
+      },
+      {
+        "case": 5,
+        "sample": "1410C",
+        "mode": "blowoff",
+        "location": "duct exit",
+        "flow": 49.68,
+        "reynolds": 1324.8,
+        "strain": 37.26,
+        "o2": 14.37,
+        "p_atm": 1.07,
+        "loss": null
+      }
+    ]
+  },
+  "published": {
+    "rows": [
+      {
+        "q": "Oxygen at 1 g blowoff, 1/4-inch PMMA rod",
+        "v": "16",
+        "u": "% O2",
+        "ctx": "Concurrent (stagnation-point) flow; slide \"Spacecraft Materials Microgravity Research on Flammability\"",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "Oxygen with steady flame spread in BASS-II, same rod",
+        "v": "13.6",
+        "u": "% O2",
+        "ctx": "Same geometry, in microgravity",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "Stated negative oxygen margin of safety",
+        "v": "2.4",
+        "u": "O2 points",
+        "ctx": "Poster says normal-gravity limits should be de-rated by at least this much",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "Radiative quenching onset, 0.1 mm PMMA sheet",
+        "v": "below 2",
+        "u": "cm/s",
+        "ctx": "Opposed flow (RTDFS slide)",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "Blow-off onset, same sheet",
+        "v": "near 40",
+        "u": "cm/s",
+        "ctx": "Flow velocity crossing 40 cm/s (RTDFS slide)",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "PMMA rods burned for the flammability boundary",
+        "v": "24",
+        "u": "rods",
+        "ctx": "Blowoff and quenching limits",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "Unique flame-spread rates from MIST rod tests",
+        "v": "54",
+        "u": "rates",
+        "ctx": "Oxygen 16 to 21%, flow 0.4 to 4 cm/s, 0.25 to 0.5 in rods",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "Narrow-channel validation tests",
+        "v": "20",
+        "u": "test points",
+        "ctx": "Opposed flow, initial oxygen 18 to 20%, PMMA 1 to 5 mm",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "SIBAL fabric tests (GEL poster slide)",
+        "v": "29",
+        "u": "tests",
+        "ctx": "6 quenching cases, 1 blow-off case, plus 2 PMMA spherical-section tests",
+        "src": "BASS-II poster (Ferkul et al. 2014)",
+        "url": "https://ntrs.nasa.gov/citations/20160000593"
+      },
+      {
+        "q": "BASS-II airflow range",
+        "v": "about 55",
+        "u": "cm/s",
+        "ctx": "About 35 cm/s with two flow restrictors",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "Oxygen range tested in BASS-II",
+        "v": "about 21 down to about 14",
+        "u": "% O2",
+        "ctx": "Ambient ISS level down to very near-limit flames",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "Typical heat release rate",
+        "v": "well below 100",
+        "u": "W",
+        "ctx": "Oxygen-consumption calorimetry; one concurrent-rod test released almost 110 W",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "Heat released per gram of oxygen consumed (Huggett)",
+        "v": "13.1",
+        "u": "kJ/g O2",
+        "ctx": "Constant used for heat release estimates",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "Global equivalence ratio, average",
+        "v": "1.3",
+        "u": "ratio",
+        "ctx": "Fuel rich: flames were under-ventilated",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "CO per 1% CO2, concurrent rods",
+        "v": "550",
+        "u": "ppm",
+        "ctx": "Average",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "CO per 1% CO2, opposed thick slabs",
+        "v": "370",
+        "u": "ppm",
+        "ctx": "Average",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "CO/CO2 versus efficient flue gas",
+        "v": "about 10 times higher",
+        "u": "ratio",
+        "ctx": "Efficient flue gases are about 0.002",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "Estimated CO in the 106 m³ US Lab from a BASS-II-scale fire",
+        "v": "1.5",
+        "u": "ppm",
+        "ctx": "Versus SMAC of 10 ppm (long term) and 55 ppm (1 hour)",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "BASS-II samples returned to Earth",
+        "v": "34",
+        "u": "samples",
+        "ctx": "Evaluated for mass loss",
+        "src": "Olson et al., ICES-2015-196",
+        "url": "https://ntrs.nasa.gov/citations/20150019858"
+      },
+      {
+        "q": "GEL flow and oxygen range",
+        "v": "0.2 to 80 cm/s; 13 to 28 % O2",
+        "u": "–",
+        "ctx": "4 cm PMMA sphere at about 1 atm",
+        "src": "GEL paper (Li et al.)",
+        "url": "https://ntrs.nasa.gov/citations/20240007628"
+      },
+      {
+        "q": "Self-sustained flame pulsation, Case 4",
+        "v": "927",
+        "u": "s",
+        "ctx": "Ultra-low flow, oxygen falling from 26.25% to 20.77%",
+        "src": "GEL paper (Li et al.)",
+        "url": "https://ntrs.nasa.gov/citations/20240007628"
+      }
+    ]
+  },
+  "measured": {
+    "label": "Zhao, T’ien, Ferkul & Olson 2015, Appendix (NTRS 20150008962)",
+    "url": "https://ntrs.nasa.gov/citations/20150008962",
+    "fabric": "SIBAL cotton-fiberglass, concurrent flow, ISS Microgravity Science Glovebox, 1 atm, flow 1–55 cm/s",
+    "rows": [
+      {
+        "test": "GMT45-T1",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 10,
+        "o2_pct": 18.5,
+        "comment": "",
+        "reused": false,
+        "o2_flag": true
+      },
+      {
+        "test": "GMT45-T2",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 5,
+        "o2_pct": 18.5,
+        "comment": "",
+        "reused": false,
+        "o2_flag": true
+      },
+      {
+        "test": "GMT45-T4",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 2.2,
+        "o2_pct": 18.7,
+        "comment": "Quenched",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT45-T15",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 29,
+        "o2_pct": 18.7,
+        "comment": "No Blow-off",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT100-T5",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 2.4,
+        "o2_pct": 18.8,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT100-T6",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 4.5,
+        "flow_end": 2.6,
+        "o2_pct": 18.8,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT100-T13",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 4,
+        "flow_end": 2.2,
+        "o2_pct": 17.5,
+        "comment": "Quenched",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT100-T16",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 4,
+        "flow_end": 3,
+        "o2_pct": 17.6,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT175-T9",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 10,
+        "o2_pct": 16.4,
+        "comment": "No ignition",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT175-T10",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 5,
+        "flow_end": 5,
+        "o2_pct": 16.4,
+        "comment": "No ignition",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT175-T18",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 5,
+        "flow_end": 2.6,
+        "o2_pct": 17.4,
+        "comment": "Quenched",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT178-T11",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 4,
+        "flow_end": 4,
+        "o2_pct": 17.1,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT178-T12",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 5,
+        "flow_end": 5,
+        "o2_pct": 16.8,
+        "comment": "No ignition",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT178-T14",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 4,
+        "flow_end": 2.8,
+        "o2_pct": 16.9,
+        "comment": "Quenched",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT178-T17",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 6,
+        "flow_end": 53,
+        "o2_pct": 16.9,
+        "comment": "No Blow-off",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT190-T19",
+        "group": "BASS-II",
+        "width_cm": 1.2,
+        "flow_start": 11,
+        "flow_end": 11,
+        "o2_pct": 17.2,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT190-T20",
+        "group": "BASS-II",
+        "width_cm": 1.2,
+        "flow_start": 11,
+        "flow_end": 3,
+        "o2_pct": 17.2,
+        "comment": "Quenched",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT190-T21",
+        "group": "BASS-II",
+        "width_cm": 1.2,
+        "flow_start": 11,
+        "flow_end": 47,
+        "o2_pct": 17.2,
+        "comment": "Blow-off",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT190-T22",
+        "group": "BASS-II",
+        "width_cm": 1.2,
+        "flow_start": 10.5,
+        "flow_end": 5,
+        "o2_pct": 17.1,
+        "comment": "Quenched",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT190-T23",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 10,
+        "o2_pct": 17.2,
+        "comment": "Reused, did not ignite",
+        "reused": true,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT190-T24",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 10,
+        "o2_pct": 18.2,
+        "comment": "Reused, one sided flame",
+        "reused": true,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT216-T25",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 5,
+        "flow_end": 2.5,
+        "o2_pct": 20.8,
+        "comment": "Reused, ignited",
+        "reused": true,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT216-T26",
+        "group": "BASS-II",
+        "width_cm": 2.2,
+        "flow_start": 5,
+        "flow_end": 2.5,
+        "o2_pct": 20.8,
+        "comment": "Reused, ignited",
+        "reused": true,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT216-T27",
+        "group": "BASS-II",
+        "width_cm": 1.2,
+        "flow_start": 5,
+        "flow_end": 2,
+        "o2_pct": 20.7,
+        "comment": "Reused, ignited",
+        "reused": true,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT216-T28a",
+        "group": "BASS-II",
+        "width_cm": 1.2,
+        "flow_start": 5,
+        "flow_end": 5,
+        "o2_pct": 20.7,
+        "comment": "Reused, did not ignite",
+        "reused": true,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT216-T28b",
+        "group": "BASS-II",
+        "width_cm": 1.2,
+        "flow_start": 5,
+        "flow_end": 5,
+        "o2_pct": 20.7,
+        "comment": "Reused, did not ignite",
+        "reused": true,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT216-T29",
+        "group": "BASS-II",
+        "width_cm": 1.2,
+        "flow_start": 5,
+        "flow_end": 2,
+        "o2_pct": 20.7,
+        "comment": "Reused, ignited",
+        "reused": true,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT96-T8",
+        "group": "BASS",
+        "width_cm": 2.2,
+        "flow_start": 5,
+        "flow_end": 5,
+        "o2_pct": 21,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT96-T7",
+        "group": "BASS",
+        "width_cm": 2.2,
+        "flow_start": 10,
+        "flow_end": 10,
+        "o2_pct": 21,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT131-T10",
+        "group": "BASS",
+        "width_cm": 1.2,
+        "flow_start": 11,
+        "flow_end": 11,
+        "o2_pct": 21,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      },
+      {
+        "test": "GMT222-T11",
+        "group": "BASS",
+        "width_cm": 1.2,
+        "flow_start": 19,
+        "flow_end": 19,
+        "o2_pct": 21,
+        "comment": "",
+        "reused": false,
+        "o2_flag": false
+      }
+    ]
+  }
+}
