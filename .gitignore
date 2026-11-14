@@ -1,0 +1,11 @@
+# Environments & dependencies
+.env
+node_modules/
+__pycache__/
+
+# Operating System & Editor Metadata
+.DS_Store
+Thumbs.db
+
+# Logs & temp files
+*.log
