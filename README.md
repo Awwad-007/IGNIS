@@ -1,4 +1,4 @@
-![IGNIS-0G Header Banner](docs/assets/banner.jpg)
+<img src="docs/assets/banner.jpg" alt="IGNIS-0G Banner" width="100%" style="border-radius: 12px; border: 3px solid #16161A; box-shadow: 6px 6px 0px #16161A;" />
 
 # IGNIS-0G // The Six-Inch Test
 ### *Interactive Spacecraft Fire-Safety & Microgravity Combustion Simulator*
