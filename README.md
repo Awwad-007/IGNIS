@@ -4,7 +4,7 @@
 ### *Interactive Spacecraft Fire-Safety & Microgravity Combustion Simulator*
 **2026 NASA Space Apps Challenge Submission // Challenge Category: *Flame in Freefall***
 
-[![NASA Space Apps 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026%20Global%20Challenge-D93829?style=for-the-badge&logo=nasa&logoColor=white)](https://www.spaceappschallenge.org/)
+[![NASA Space Apps 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026%20Global%20Challenge-D93829?style=for-the-badge)](https://www.spaceappschallenge.org/)
 [![Challenge](https://img.shields.io/badge/Challenge-Flame%20in%20Freefall-1D5B9E?style=for-the-badge)](https://www.spaceappschallenge.org/)
 [![Pure Web Standards](https://img.shields.io/badge/Stack-Pure%20HTML5%20%7C%20ES%20Modules%20%7C%20Web%20Audio-1F7A4C?style=for-the-badge)](#technical-engine--modular-architecture)
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero%20(0%20npm)-16161A?style=for-the-badge)](#offline-resilience-zero-dependency-integrity--research-extensibility)
@@ -421,6 +421,17 @@ python -c "import json; json.load(open('data/nasa_empirical_data.json')); json.l
     </tr>
   </tbody>
 </table>
+
+---
+
+## 🤖 AI & Super Intelligence Disclosure
+
+In full compliance with NASA Space Apps Challenge regulations and open-science transparency standards, we disclose the use of artificial intelligence and machine learning tools during the research, engineering, and visual design phases of **IGNIS-0G**:
+
+1. **Assisted Architecture & Code Modularization**: AI developer assistants (Claude Code & Google Antigravity) were utilized to help refactor and decouple the monolithic codebase into structured, maintainable ECMAScript modules ([`src/physics.js`](src/physics.js), [`src/audio.js`](src/audio.js), [`src/simulation.js`](src/simulation.js), and [`src/app.js`](src/app.js)), profile render loops for 60 FPS performance, and ensure zero-dependency offline browser execution.
+2. **Technical Documentation & Derivation Drafting**: Large Language Models assisted in organizing, drafting, and cross-checking the engineering calibration whitepaper ([`docs/PHYSICS_CALIBRATION.md`](docs/PHYSICS_CALIBRATION.md)) and repository documentation to match NASA formal technical report standards (NASA/TM conventions).
+3. **Hero Banner Conceptual Illustration**: Generative AI imagery tools assisted in generating the early visual concept layout for the retro-GameBoy 16:9 hero banner ([`docs/assets/banner.jpg`](docs/assets/banner.jpg)). In strict accordance with NASA emblem, logo, and seal policies, all agency insignias and marks have been completely scrubbed from all AI-generated artwork.
+4. **Empirical Ground Truth & Scientific Integrity**: **All underlying combustion physics formulas, microgravity flammability boundary curves, material flammability indices (LOI), and empirical research datasets are 100% human-verified and derived strictly from public NASA Physical Sciences Informatics (PSI) flight telemetry** (BASS, BASS-II, SoFIE-GEL, FLEX, SAME) and peer-reviewed aerospace combustion literature (NASA-STD-6001B, Olson et al. 2021, Li et al. 2024). AI tools were never used to generate, fabricate, or hallucinate empirical flight data.
 
 ---
 
