@@ -1,5 +1,15 @@
 <img src="docs/assets/banner.jpg" alt="IGNIS-0G Banner" width="100%" style="border-radius: 12px; border: 3px solid #16161A; box-shadow: 6px 6px 0px #16161A;" />
 
+<p align="center">
+  <a href="https://ignis-dusky.vercel.app/" target="_blank">
+    <img src="https://img.shields.io/badge/%F0%9F%9A%80%20Launch%20Live%20Simulator-ignis--dusky.vercel.app-D93829?style=for-the-badge" alt="Launch Live Simulator" height="38" />
+  </a>
+  &nbsp;&nbsp;
+  <a href="docs/PHYSICS_CALIBRATION.md">
+    <img src="https://img.shields.io/badge/%F0%9F%93%90%20Physics%20Calibration%20Whitepaper-NASA%20Flight%20Telemetry-1D5B9E?style=for-the-badge" alt="Physics Calibration Whitepaper" height="38" />
+  </a>
+</p>
+
 # IGNIS-0G // The Six-Inch Test
 ### *Interactive Spacecraft Fire-Safety & Microgravity Combustion Simulator*
 **2026 NASA Space Apps Challenge Submission // Challenge Category: *Flame in Freefall***
@@ -26,7 +36,7 @@
 
 Experience **IGNIS-0G** in any modern web browser with zero configuration:
 
-* **Production Cloud Simulator**: **[https://ignis-0g.vercel.app](https://ignis-0g.vercel.app)** *(Zero-latency edge deployment)*
+* **Production Cloud Simulator**: **[https://ignis-dusky.vercel.app/](https://ignis-dusky.vercel.app/)** *(Zero-latency edge deployment)*
 * **Local Offline Preview**: `http://localhost:8000/index.html` *(Run `python -m http.server 8000`)*
 
 ### ⏱️ 60-Second Interactive Judge Test-Drive
@@ -442,7 +452,7 @@ In full compliance with NASA Space Apps Challenge regulations and open-science t
 > 
 > **IGNIS-0G** bridges half a century of space combustion research—from drop towers and parabolic flights to the International Space Station—into an interactive engineering instrument. It empowers astronauts, mission safety architects, and students worldwide to see beyond the six-inch blind spot and design safer habitats for deep space.
 
-**[Launch IGNIS-0G Simulator](https://ignis-0g.vercel.app)** • **[Inspect the Source Code](src/physics.js)** • **[Read the Data Room](data/nasa_empirical_data.json)** • **[Physics Calibration Whitepaper](docs/PHYSICS_CALIBRATION.md)**
+**[Launch IGNIS-0G Simulator](https://ignis-dusky.vercel.app/)** • **[Inspect the Source Code](src/physics.js)** • **[Read the Data Room](data/nasa_empirical_data.json)** • **[Physics Calibration Whitepaper](docs/PHYSICS_CALIBRATION.md)**
 
 ---
 
