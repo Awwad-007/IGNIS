@@ -18,7 +18,7 @@
 ---
 
 ### 🧭 Navigation Bar
-[Interactive Demo](#-interactive-live-demo) • [Core Experience](#-core-features--interactive-modules-deep-dive) • [Technical Architecture](#-technical-engine--modular-architecture) • [Empirical Calibration](#-empirical-benchmarks--nasa-flight-calibration) • [Developer Quickstart](#-developer-quickstart) • [Cloud Deployment](#-production-cloud-deployment--tech-stack)
+[Interactive Demo](#-interactive-live-demo) • [Core Experience](#-core-features--interactive-modules-deep-dive) • [Technical Architecture](#-technical-engine--modular-architecture) • [Empirical Calibration](#-empirical-benchmarks--nasa-flight-calibration) • [Physics Whitepaper](docs/PHYSICS_CALIBRATION.md) • [Developer Quickstart](#-developer-quickstart) • [Cloud Deployment](#-production-cloud-deployment--tech-stack)
 
 ---
 
@@ -133,6 +133,7 @@ Follow this 4-step sequence to evaluate the simulation, physics model, and empir
 | **Empirical Data** | [`data/nasa_empirical_data.json`](data/nasa_empirical_data.json) | 16 complete NASA empirical combustion datasets, materials matrix, and model constants. |
 | **Flight Archive** | [`data/psi_investigations.json`](data/psi_investigations.json) | 24 NASA Physical Sciences Informatics (PSI) microgravity flight investigations with NTRS IDs. |
 | **Physics Engine** | [`src/physics.js`](src/physics.js) | Calibrated reduced-order combustion formulas (`loi`, `sp`, `bends`, `eff`, `rankPSI`). |
+| **Calibration Report** | [`docs/PHYSICS_CALIBRATION.md`](docs/PHYSICS_CALIBRATION.md) | Publication-grade engineering verification report covering equations, empirical traceability, and bounds. |
 | **Audio Synthesizer** | [`src/audio.js`](src/audio.js) | Procedural sound engine utilizing the Web Audio API for zero-asset tactile haptic feedback. |
 | **Application Runtime**| [`src/app.js`](src/app.js) | Async bootloader, state coordinator, canvas render loops, and DOM event listeners. |
 
@@ -143,7 +144,7 @@ Follow this 4-step sequence to evaluate the simulation, physics model, and empir
 2. **Stage 2: Async Bootloader & Fallback Pipeline**  
    [`src/app.js`](src/app.js) initiates parallel `fetch()` calls to load `data/nasa_empirical_data.json` and `data/psi_investigations.json`. If strict browser origin policies block local file fetching (e.g. double-clicking `file://`), the bootloader seamlessly engages inline embedded fallback data structures with zero disruption to the user.
 3. **Stage 3: Calibrated Microgravity Physics & Procedural Audio**  
-   - [`src/physics.js`](src/physics.js) implements reduced-order mathematical models derived from NASA BASS-II and SoFIE experiments.
+   - [`src/physics.js`](src/physics.js) implements reduced-order mathematical models derived from NASA BASS-II and SoFIE experiments. For full analytical derivations, parameter tables, and boundary conditions, see the [Physics Calibration Report (`docs/PHYSICS_CALIBRATION.md`)](docs/PHYSICS_CALIBRATION.md).
    - Dynamic Limiting Oxygen Index equation:
      $$\text{LOI}(v, g) = \text{LOI}_{0g} + \alpha_r \cdot e^{-v / v_0} + \beta_c \cdot (v / v_{blow})^2 + \gamma_g \cdot \sqrt{g}$$
    - Flame Spread Rate formula:
@@ -212,6 +213,8 @@ Researchers can extend **IGNIS-0G** with new spacecraft materials or flight inve
 ![IGNIS-0G Empirical Flight Calibration](docs/assets/benchmarks.jpg)
 
 **IGNIS-0G** replaces crude qualitative approximations with a rigorously calibrated reduced-order combustion engine matching published flight and ground test datasets from NASA Glenn Research Center, NASA Johnson Space Center, and the International Space Station.
+
+> 📄 **Technical Engineering Whitepaper**: Complete mathematical derivations, parameter sensitivity tables, and empirical validation proofs across 117 flight points and 24 NASA PSI missions are published in the companion verification document: [`docs/PHYSICS_CALIBRATION.md`](docs/PHYSICS_CALIBRATION.md).
 
 ### Empirical Flight Calibration Matrix
 
@@ -428,7 +431,7 @@ python -c "import json; json.load(open('data/nasa_empirical_data.json')); json.l
 > 
 > **IGNIS-0G** bridges half a century of space combustion research—from drop towers and parabolic flights to the International Space Station—into an interactive engineering instrument. It empowers astronauts, mission safety architects, and students worldwide to see beyond the six-inch blind spot and design safer habitats for deep space.
 
-**[Launch IGNIS-0G Simulator](https://ignis-0g.vercel.app)** • **[Inspect the Source Code](src/physics.js)** • **[Read the Data Room](data/nasa_empirical_data.json)**
+**[Launch IGNIS-0G Simulator](https://ignis-0g.vercel.app)** • **[Inspect the Source Code](src/physics.js)** • **[Read the Data Room](data/nasa_empirical_data.json)** • **[Physics Calibration Whitepaper](docs/PHYSICS_CALIBRATION.md)**
 
 ---
 
