@@ -7,12 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/gameboy-deck.css">
+<link rel="stylesheet" href="css/simulation.css">
 <link rel="icon" href="data:,">
 </head>
 <body>
 <div class="ruler"><i id="rf"></i><b>6 IN · SCROLL</b></div>
 <div class="top"><div class="wrap"><span><i></i>NASA SPACE APPS 2026 · FLAME IN FREEFALL</span>
 <nav><a href="#s1">1 Cabin</a><a href="#s2">2 Test</a><a href="#s3">3 Moon</a><a href="#s4">4 Cool flame</a><a href="#s5">5 Smoke</a><a href="#s6">6 PSI Ranker</a><a href="#s7">7 Earth Spin-Offs</a><a href="#s8">8 Reality</a><a href="#hist">History</a><a href="#data">Data</a></nav>
+<button class="btn sim-trigger-btn" id="btn-run-simulation" type="button" title="Watch 60s Guided Autopilot Demo">🎬 RUN SIMULATION</button>
 <button id="mute">Sound on</button></div></div>
 <div class="ticker"><div id="tk"></div></div>
 
@@ -22,6 +24,7 @@
     <h1>The <em>Six&#8209;Inch</em> Test</h1>
     <p class="lead">NASA certifies cabin materials by burning a strip on Earth and measuring six inches. Gravity changes how fire behaves, and the Moon has a sixth of it. You sign off the lunar cabin. Then we light it.</p>
     <p class="lead" style="font-size:15px;color:#33373d">Drag the dial to see what gravity does to one flame. Five rounds follow: set the air, test the materials, send them to the Moon, then catch the two fires your instruments miss.</p>
+    <p><button class="btn sim-hero-btn" id="btn-hero-simulation" type="button">[ 🎬 WATCH 60s AUTOPILOT DEMO ]</button></p>
   </div>
   <div><p class="fig">Fig. 0 · One candle, any gravity (illustration)</p>
   <div class="win"><canvas id="hero" width="230" height="165"></canvas>

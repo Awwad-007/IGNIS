@@ -1,5 +1,6 @@
 /* src/app.js · IGNIS-0G Core Application Entrypoint */
 
+import { initSimulation } from './simulation.js';
 import { au, tone, noise, sfx } from './audio.js';
 import {
   clamp,
@@ -2426,6 +2427,7 @@ async function boot() {
     ]);
     initPhysicsData(empData, psiData);
     initApp();
+    initSimulation();
   } catch (err) {
     console.error('Failed to load IGNIS-0G datasets:', err);
     showBootError(err);
