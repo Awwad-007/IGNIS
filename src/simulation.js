@@ -1,4 +1,4 @@
-/* src/simulation.js · IGNIS-0G Production-Grade Hands-Free Autopilot Demo */
+/* src/simulation.js · IGNIS-0G Production-Grade Hands-Free Autopilot Demo (26s Pacing) */
 
 import { sfx } from './audio.js';
 import { S } from './physics.js';
@@ -57,7 +57,7 @@ function wait(ms) {
       if (skipCurrentAct) return resolve();
 
       if (isPaused) {
-        const timerId = setTimeout(check, 100);
+        const timerId = setTimeout(check, 80);
         registerTimer(timerId);
         return;
       }
@@ -66,12 +66,12 @@ function wait(ms) {
       if (elapsed >= remaining) {
         resolve();
       } else {
-        const timerId = setTimeout(check, Math.min(60, remaining - elapsed));
+        const timerId = setTimeout(check, Math.min(30, remaining - elapsed));
         registerTimer(timerId);
       }
     };
 
-    const timerId = setTimeout(check, Math.min(60, remaining));
+    const timerId = setTimeout(check, Math.min(30, remaining));
     registerTimer(timerId);
   });
 }
@@ -105,7 +105,7 @@ function removeCursor() {
   }
 }
 
-function animateCursor(x, y, duration = 450) {
+function animateCursor(x, y, duration = 350) {
   if (isAborted) return Promise.reject('ABORTED');
   ensureCursor();
   cursorEl.style.transition = `transform ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`;
@@ -119,7 +119,7 @@ function createRipple(x, y) {
   ripple.style.left = `${x}px`;
   ripple.style.top = `${y}px`;
   document.body.appendChild(ripple);
-  setTimeout(() => ripple.remove(), 700);
+  setTimeout(() => ripple.remove(), 550);
 }
 
 function highlightElement(el) {
@@ -138,13 +138,13 @@ function clearHighlight() {
   document.querySelectorAll('.sim-highlight').forEach(e => e.classList.remove('sim-highlight'));
 }
 
-async function moveCursorTo(selector, offset = { x: 0.5, y: 0.5 }, duration = 480) {
+async function moveCursorTo(selector, offset = { x: 0.5, y: 0.5 }, duration = 350) {
   if (isAborted || skipCurrentAct) return;
   const el = typeof selector === 'string' ? document.querySelector(selector) : selector;
   if (!el) return;
 
   el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  await wait(380);
+  await wait(250);
   if (isAborted || skipCurrentAct) return;
 
   const { x, y } = getElementCenter(el, offset);
@@ -156,7 +156,7 @@ async function simulateClick(selector, offset = { x: 0.5, y: 0.5 }, sound = 'tic
   const el = typeof selector === 'string' ? document.querySelector(selector) : selector;
   if (!el) return;
 
-  await moveCursorTo(el, offset, 440);
+  await moveCursorTo(el, offset, 350);
   if (isAborted || skipCurrentAct) return;
 
   highlightElement(el);
@@ -173,22 +173,19 @@ async function simulateClick(selector, offset = { x: 0.5, y: 0.5 }, sound = 'tic
 
   el.click();
 
-  await wait(160);
+  await wait(100);
   if (cursorEl) cursorEl.classList.remove('sim-cursor-click');
-  await wait(220);
+  await wait(120);
 }
 
-async function animateSlider(sliderSelector, targetValue, durationMs = 850) {
+async function animateSlider(sliderSelector, targetValue, durationMs = 500) {
   if (isAborted || skipCurrentAct) return;
   const slider = typeof sliderSelector === 'string' ? document.querySelector(sliderSelector) : sliderSelector;
   if (!slider) return;
 
-  await moveCursorTo(slider, { x: 0.5, y: 0.5 }, 420);
-  if (isAborted || skipCurrentAct) return;
-
   highlightElement(slider);
   const startVal = parseFloat(slider.value) || 0;
-  const steps = 24;
+  const steps = 16;
   const stepDuration = durationMs / steps;
 
   for (let i = 1; i <= steps; i++) {
@@ -196,21 +193,21 @@ async function animateSlider(sliderSelector, targetValue, durationMs = 850) {
     const current = startVal + (targetValue - startVal) * (i / steps);
     slider.value = Math.round(current * 10) / 10;
     slider.dispatchEvent(new Event('input', { bubbles: true }));
-    if (i % 6 === 0) sfx.tick();
+    if (i % 4 === 0) sfx.tick();
     await wait(stepDuration);
   }
 
   slider.value = targetValue;
   slider.dispatchEvent(new Event('input', { bubbles: true }));
-  await wait(200);
+  await wait(120);
 }
 
-async function simulateTyping(inputSelector, text, speedMs = 32) {
+async function simulateTyping(inputSelector, text, speedMs = 25) {
   if (isAborted || skipCurrentAct) return;
   const input = typeof inputSelector === 'string' ? document.querySelector(inputSelector) : inputSelector;
   if (!input) return;
 
-  await moveCursorTo(input, { x: 0.15, y: 0.5 }, 400);
+  await moveCursorTo(input, { x: 0.15, y: 0.5 }, 350);
   if (isAborted || skipCurrentAct) return;
 
   highlightElement(input);
@@ -222,10 +219,10 @@ async function simulateTyping(inputSelector, text, speedMs = 32) {
     if (isAborted || skipCurrentAct) break;
     input.value += text[i];
     input.dispatchEvent(new Event('input', { bubbles: true }));
-    if (i % 4 === 0) sfx.tick();
+    if (i % 5 === 0) sfx.tick();
     await wait(speedMs);
   }
-  await wait(220);
+  await wait(120);
 }
 
 /* ---------- HUD & Explainer Overlays ---------- */
@@ -344,7 +341,7 @@ function showFinale() {
     finaleEl = null;
   };
 
-  // Auto close after 6 seconds
+  // Auto close after 5 seconds
   setTimeout(() => {
     if (finaleEl) {
       finaleEl.style.transition = 'opacity 0.4s ease';
@@ -356,7 +353,7 @@ function showFinale() {
         }
       }, 400);
     }
-  }, 6000);
+  }, 5000);
 }
 
 /* ---------- Autopilot Control Actions ---------- */
@@ -378,7 +375,7 @@ function skipAct() {
   sfx.tick();
 }
 
-/* ---------- 6-Act Mission Choreography ---------- */
+/* ---------- 6-Act Mission Choreography (Tuned for ~26s Total) ---------- */
 
 async function runAct1() {
   updateHUD(1);
@@ -392,12 +389,12 @@ async function runAct1() {
 
   const heroSec = document.querySelector('.hero');
   if (heroSec) heroSec.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  await wait(600);
+  await wait(250);
 
   // Glide to gravity slider and adjust from Earth (100) to Moon (32)
-  await moveCursorTo('#gs', { x: 0.85, y: 0.5 }, 500);
-  await animateSlider('#gs', 32, 900); // 32 corresponds to ~0.16g Moon
-  await wait(1800);
+  await moveCursorTo('#gs', { x: 0.85, y: 0.5 }, 350);
+  await animateSlider('#gs', 32, 500); // 32 corresponds to ~0.16g Moon
+  await wait(2200);
 }
 
 async function runAct2() {
@@ -412,7 +409,7 @@ async function runAct2() {
 
   const s1 = document.querySelector('#s1');
   if (s1) s1.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  await wait(700);
+  await wait(250);
 
   // Click Artemis preset button
   const artemisBtn = document.querySelector('button[data-p="34,56.5,8"]');
@@ -420,22 +417,21 @@ async function runAct2() {
     await simulateClick(artemisBtn, { x: 0.5, y: 0.5 }, 'ok');
   }
 
-  await wait(800);
+  await wait(250);
 
   // Move to U-Curve Oscilloscope
   const ucCanvas = document.querySelector('#uCurve');
   if (ucCanvas) {
-    await moveCursorTo(ucCanvas, { x: 0.5, y: 0.5 }, 500);
+    await moveCursorTo(ucCanvas, { x: 0.5, y: 0.5 }, 350);
     highlightElement(ucCanvas);
-    await wait(1200);
+    await wait(900);
   }
 
   // Move to 4-Zone Habitat Bulkhead Telemetry
   const habCanvas = document.querySelector('#habMap');
   if (habCanvas) {
-    await moveCursorTo(habCanvas, { x: 0.72, y: 0.65 }, 500); // Bay 3/4 area
     await simulateClick(habCanvas, { x: 0.72, y: 0.65 }, 'tick');
-    await wait(1400);
+    await wait(300);
   }
 }
 
@@ -451,7 +447,7 @@ async function runAct3() {
 
   const s2 = document.querySelector('#s2');
   if (s2) s2.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  await wait(700);
+  await wait(250);
 
   // Click "Burn all five" button
   const runAllBtn = document.querySelector('#runAll');
@@ -460,14 +456,14 @@ async function runAct3() {
   }
 
   // Watch burns complete on CRT cards
-  await wait(2400);
+  await wait(1800);
 
   // Approve first passed material if available
   const approveBtn = document.querySelector('#cards .card button.a:not(:disabled)');
   if (approveBtn) {
     await simulateClick(approveBtn, { x: 0.5, y: 0.5 }, 'tick');
   }
-  await wait(1200);
+  await wait(200);
 }
 
 async function runAct4() {
@@ -482,7 +478,7 @@ async function runAct4() {
 
   const s3 = document.querySelector('#s3');
   if (s3) s3.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  await wait(600);
+  await wait(250);
 
   // Click "Send approved materials"
   const sendBtn = document.querySelector('#send');
@@ -490,14 +486,14 @@ async function runAct4() {
     await simulateClick(sendBtn, { x: 0.5, y: 0.5 }, 'alarm');
   }
 
-  await wait(1200);
+  await wait(600);
 
   // Highlight ledger audit findings
   const ledger = document.querySelector('#ledger');
   if (ledger) {
-    await moveCursorTo(ledger, { x: 0.5, y: 0.3 }, 500);
+    await moveCursorTo(ledger, { x: 0.5, y: 0.3 }, 350);
     highlightElement(ledger);
-    await wait(2000);
+    await wait(1500);
   }
 }
 
@@ -513,32 +509,32 @@ async function runAct5() {
 
   const s4 = document.querySelector('#s4');
   if (s4) s4.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  await wait(700);
+  await wait(250);
 
   // Spray partial suppressant
   const sprayBtn = document.querySelector('#cSpray');
   if (sprayBtn) {
     await simulateClick(sprayBtn, { x: 0.5, y: 0.5 }, 'whoosh');
   }
-  await wait(900);
+  await wait(250);
 
   // Toggle Thermal IR View
   const thermBtn = document.querySelector('#cTherm');
   if (thermBtn) {
     await simulateClick(thermBtn, { x: 0.5, y: 0.5 }, 'ok');
   }
-  await wait(1500);
+  await wait(900);
 
   // Scroll to Step 5 (Smoke Detector)
   const s5 = document.querySelector('#s5');
   if (s5) {
     s5.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    await wait(600);
+    await wait(200);
     const orbitBtn = document.querySelector('button.sg[data-sg="0"]');
     if (orbitBtn) {
       await simulateClick(orbitBtn, { x: 0.5, y: 0.5 }, 'tick');
     }
-    await wait(1400);
+    await wait(500);
   }
 }
 
@@ -554,11 +550,11 @@ async function runAct6() {
 
   const s6 = document.querySelector('#s6');
   if (s6) s6.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  await wait(700);
+  await wait(250);
 
   // Type research prompt into SI Query
   const promptText = 'Why does low airflow increase fire risk in lunar cabins?';
-  await simulateTyping('#siQuery', promptText, 28);
+  await simulateTyping('#siQuery', promptText, 25);
 
   // Click SYNTHESIZE button
   const synthBtn = document.querySelector('#siSynth');
@@ -566,14 +562,14 @@ async function runAct6() {
     await simulateClick(synthBtn, { x: 0.5, y: 0.5 }, 'ok');
   }
 
-  await wait(1200);
+  await wait(300);
 
   // Move to synthesized answer and inspect citations
   const siAnswer = document.querySelector('#siAnswer');
   if (siAnswer) {
-    await moveCursorTo(siAnswer, { x: 0.5, y: 0.4 }, 500);
+    await moveCursorTo(siAnswer, { x: 0.5, y: 0.4 }, 350);
     highlightElement(siAnswer);
-    await wait(2400);
+    await wait(1100);
   }
 }
 
